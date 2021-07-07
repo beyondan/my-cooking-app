@@ -1,0 +1,14 @@
+// Set the absolute import path to '/src/', so now you can just do:
+//
+//    import SomeComponent from 'components';
+//
+// ... instead of ...
+//
+//    import SomeComponent from '../../../src/components';
+//
+{
+  "compilerOptions": {
+    "baseUrl": "src"
+  },
+  "include": ["src"]
+}
