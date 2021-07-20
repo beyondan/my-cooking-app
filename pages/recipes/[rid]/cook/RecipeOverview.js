@@ -51,9 +51,11 @@ export default function RecipeOverview(props) {
           <Grid item xs={12}>
             <Table size='small'>
               <TableHead>
-                <TableCell>#</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Amount</TableCell>
+                <TableRow>
+                  <TableCell>#</TableCell>
+                  <TableCell>Name</TableCell>
+                  <TableCell>Amount</TableCell>
+                </TableRow>
               </TableHead>
               <TableBody>
                 {
@@ -78,8 +80,10 @@ export default function RecipeOverview(props) {
           <Grid item xs={12}>
             <Table>
               <TableHead>
-                <TableCell>#</TableCell>
-                <TableCell>Step</TableCell>
+                <TableRow>
+                  <TableCell>#</TableCell>
+                  <TableCell>Step</TableCell>
+                </TableRow>
               </TableHead>
               <TableBody>
                 {
@@ -98,7 +102,7 @@ export default function RecipeOverview(props) {
 
           {/* Start button */}
           <Grid item xs={12}>
-            <Link href={`/recipes/cook/${rid}`}>
+            <Link href={`/recipes/${rid}/cook/${0}`}>
               <Button
                 className={classes.startButton}
                 variant='outlined'

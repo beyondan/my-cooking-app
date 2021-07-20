@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
  *    Redirects /lab to /lab/home.     *
  *                                     *
  * * * * * * * * * * * * * * * * * * * */
-export default function Index() {
+export default function Lab() {
   const router = useRouter();
   const [loaded, setLoaded] = React.useState(false);
 
@@ -30,7 +30,6 @@ export default function Index() {
 
   return (
     <div>
-      <h1>This page should never be displayed.</h1>
     </div>
   );
 }

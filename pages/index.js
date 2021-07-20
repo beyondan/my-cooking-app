@@ -30,7 +30,6 @@ export default function Index() {
 
   return (
     <div>
-      <h1>This page should never be displayed.</h1>
     </div>
   );
 }

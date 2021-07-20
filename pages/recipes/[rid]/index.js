@@ -1,16 +1,35 @@
+// Recipe page (https://mydomain/recipes/[rid]).
+// Automatically redirects to recipe overview page 
+//   (https://mydomain/recipes/[rid]/cook).
 import React from 'react';
 import { useRouter } from 'next/router';
-import { MainLayout } from 'components/layouts';
-import { MainPages } from 'globals';
-import RecipeOverview from './RecipeOverview';
 
-export default function Recipe() {
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                         *
+ *    Redirects /recipes/[rid] to /recipes/[rid]/cook.     *
+ *                                                         *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+export default function RecipesRid() {
   const router = useRouter();
-  const { rid } = router.query;
+  const [loaded, setLoaded] = React.useState(false);
 
-  return (
-    <MainLayout page={MainPages.Recipes}>
-      <RecipeOverview rid={rid} />
-    </MainLayout>
-  )
-};
+  // Redirect automatically.
+  React.useEffect(() => {
+    const { rid } = router.query;
+    if (router.pathname == `/recipes/[rid]`) {
+      router.replace(`/recipes/${rid}/cook`);
+    }
+    else {
+      // Somehow, /recipes/[rid]/index is loaded,
+      // but the path is not '/recipes/[rid]'. 
+      // AFAIK, this should never happen.
+      setLoaded(true);
+    }
+  }, [router])
+
+  if (!loaded){
+    return <div></div>;
+  }
+
+  return <div></div>;
+}

@@ -429,37 +429,37 @@ export const dummySteps = [
   // Recipe 2 - Galbi-tang
   {
     id: 100,
-    rid: 1,
+    rid: 2,
     sid: 0,
     stepText: 'Soak the ribs for 30 minutes in cold water. Drain.',
   },
   {
     id: 101,
-    rid: 1,
+    rid: 2,
     sid: 1,
     stepText: 'Fill a large pot with enough water to cover the ribs, about 8 cups. Bring water to a boil, and then drop the ribs in. Let it come back to a boil. Continue to boil for 2 to 3 minutes.',
   },
   {
     id: 102,
-    rid: 1,
+    rid: 2,
     sid: 2,
     stepText: 'Drain the ribs. Wash the ribs under running water. Clean the pot.',
   },
   {
     id: 103,
-    rid: 1,
+    rid: 2,
     sid: 3,
     stepText: 'Return the ribs back to the pot. Add 13 to 14 cups of water, radish, onion, garlic and ginger. Add 2 tablespoons of soup soy sauce and 1 teaspoon of salt (use less if your soup soy sauce is dark and more salt). Bring it to a boil. Continue to boil, uncovered, for 30 minutes over high heat.',
   },
   {
     id: 104,
-    rid: 1,
+    rid: 2,
     sid: 4,
     stepText: 'Reduce the heat to medium. Remove all the vegetables. Transfer the radish to a cutting board. Discard the other vegetables.',
   },
   {
     id: 105,
-    rid: 1,
+    rid: 2,
     sid: 5,
     stepText: 'Add 2 cups of water. Continue to boil, covered, for about an hour until the meat is tender. Add 1 teaspoon of minced garlic and the optional noodles 3 or 4 minutes before turning the heat off. Cut the radish into thick bite size pieces and add to the soup. Bring everything to a boil again. Salt and pepper to taste. Skim off fat or use a fat separator to remove excess fat. Garnish with the chopped scallions to serve.',
   },
