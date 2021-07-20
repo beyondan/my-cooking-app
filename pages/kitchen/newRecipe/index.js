@@ -8,6 +8,7 @@ import {
   Grid,
 } from '@material-ui/core';
 // src/
+import { Section } from 'components';
 import { KitchenLayout } from 'components/layouts';
 import { KitchenPages } from 'globals';
 import theme from 'theme';
@@ -16,7 +17,6 @@ import { makeStyles } from '@material-ui/core/styles';
 // Child components
 import IngredientList from './IngredientList';
 import RecipeTitle from './RecipeTitle';
-import SectionTitle from './SectionTitle';
 import StepList from './StepList';
 
 const useStyles = makeStyles((theme) => ({
@@ -104,7 +104,7 @@ export default function NewRecipe() {
           {/* Ingredients */}
           <Grid container item xs={12}>
             <Grid item xs={12}>
-              <SectionTitle value='Ingredients' />
+              <Section title='Ingredients' />
             </Grid>
 
             <Grid item xs={12}>
@@ -121,7 +121,7 @@ export default function NewRecipe() {
           {/* Steps */}
           <Grid container item xs={12}>
             <Grid item xs={12}>
-              <SectionTitle value='Steps' />
+              <Section title='Steps' />
             </Grid>
 
             <Grid item xs={12}>
