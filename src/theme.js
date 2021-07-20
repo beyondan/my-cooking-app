@@ -58,6 +58,9 @@ const theme = createMuiTheme({
       focused: greyscale(8),
       unfocused: greyscale(1),
     },
+    button: {
+      textTransform: 'none',
+    }
   },
 });
 

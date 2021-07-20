@@ -6,7 +6,7 @@ import { KitchenPages } from 'globals';
 
 /* * * * * * * * * * * * * * * * * * * *
  *                                     *
- *            Kitchen Home             *
+ *       Kitchen Home - Index          *
  *                                     *
  * * * * * * * * * * * * * * * * * * * */
 export default function Home() {

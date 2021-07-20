@@ -23,11 +23,12 @@ import HomeIcon from '@material-ui/icons/Home';
 import HelpIcon from '@material-ui/icons/Help';
 // src/
 import { APPNAME, MainPages, KitchenPages, UserPages } from 'globals';
+import theme from 'theme';
 // nextjs
 import Link from 'next/link';
 // styles
 import clsx from 'clsx';
-import { makeStyles, useTheme, ThemeProvider } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
 const DRAWER_WIDTH = 60;
 
@@ -86,8 +87,7 @@ const useStyles = makeStyles((theme) => ({
  *                                     *
  * * * * * * * * * * * * * * * * * * * */
 export default function MainLayout({ page, children }) {
-  const theme = useTheme();
-  const classes = useStyles();
+  const classes = useStyles(theme);
 
   const css_toggleFocus = (appPage) => clsx({
     [classes.focused]: page.id == appPage.id,
@@ -96,7 +96,7 @@ export default function MainLayout({ page, children }) {
 
   return (
     <ThemeProvider theme={theme}>
-      
+  
       <div className={classes.root}>
         <CssBaseline />
 

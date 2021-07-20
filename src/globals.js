@@ -19,8 +19,8 @@ export const KitchenPages = {
     display: 'home',
   },
   NewRecipe: {
-    id: 'KitchenNew',
-    href: '/kitchen/new',
+    id: 'KitchenNewRecipe',
+    href: '/kitchen/newRecipe',
     display: 'add new recipe',
   },
 }

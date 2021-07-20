@@ -1,6 +1,5 @@
 
-import Canvas, { getMousePosition } from './Canvas';
 import Link from './Link';
-import Timeline from './Timeline';
+import Timeline from '../../pages/kitchen/newRecipe/Timeline';
 
-export { Canvas, getMousePosition as getMousePos, Link, Timeline };
+export { Link, Timeline };
