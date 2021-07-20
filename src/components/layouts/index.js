@@ -1,4 +1,4 @@
 import MainLayout from './MainLayout';
-import KitchenLayout from './KitchenLayout';
+import LabLayout from './LabLayout';
 
-export { MainLayout, KitchenLayout };
+export { MainLayout, LabLayout };

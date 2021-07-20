@@ -21,14 +21,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Section(props) {
-  const { title } = props;
+  const { 
+    title,
+    variant = 'body1',
+  } = props;
   const classes = useStyles(theme);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
 
-      <Typography variant='body1' className={classes.title}>
+      <Typography variant={variant} className={classes.title}>
         {title}
       </Typography>
     </div>

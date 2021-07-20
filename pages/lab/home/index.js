@@ -1,18 +1,18 @@
-// Main kitchen loading page (https://mydomain/kitchen)
+// Main Lab loading page (https://mydomain/lab/home)
 
 import React from 'react';
-import { KitchenLayout } from 'components/layouts';
-import { KitchenPages } from 'globals';
+import { LabLayout } from 'components/layouts';
+import { LabPages } from 'globals';
 
 /* * * * * * * * * * * * * * * * * * * *
  *                                     *
- *       Kitchen Home - Index          *
+ *         Lab Home - Index            *
  *                                     *
  * * * * * * * * * * * * * * * * * * * */
 export default function Home() {
   return (
-    <KitchenLayout page={KitchenPages.Home}>
+    <LabLayout page={LabPages.Home}>
       <h1>Home page</h1>
-    </KitchenLayout>
+    </LabLayout>
   )
 };

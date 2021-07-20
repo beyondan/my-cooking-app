@@ -2,17 +2,10 @@ import React from 'react';
 // core ui
 import { 
   Avatar,
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  CardMedia,
   CssBaseline,
   Grid,
+  Link,
   IconButton,
-  List,
-  ListItem,
-  Tooltip,
   Typography
 } from '@material-ui/core';
 // core ui - icons
@@ -22,7 +15,6 @@ import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 
 // src/
 import theme from 'theme';
-
 // styles
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -95,7 +87,11 @@ export default function RecipeCard(props) {
 
       <Grid container>
 
-        <Grid className={classes.cardHeader} container item xs={12}>
+        {/* Card header */}
+        <Grid
+          className={classes.cardHeader} 
+          container item xs={12}
+        >
           <Grid item xs={2}>
             <Avatar
               aria-label='recipe' 
@@ -106,24 +102,28 @@ export default function RecipeCard(props) {
           </Grid>
           <Grid container item xs={8}>
             <Grid item xs={12}>
-              <Typography
-                className={classes.title}
-                variant='body2'
-                component='p'
-                noWrap
-              >
-                {item.title}  
-              </Typography>
+              <Link href={`/recipes/${item.id}`}>
+                <Typography
+                  className={classes.title}
+                  variant='body2'
+                  component='p'
+                  noWrap
+                >
+                  {item.title}  
+                </Typography>
+              </Link>
             </Grid>
             <Grid item xs={12}>
-              <Typography
-                className={classes.author}
-                variant='body2'
-                component='p'
-                noWrap
-              >
-                {item.author}
-              </Typography>
+              <Link href={`/account/${item.author}`}>
+                <Typography
+                  className={classes.author}
+                  variant='body2'
+                  component='p'
+                  noWrap
+                >
+                  {item.author}
+                </Typography>
+              </Link>
             </Grid>
           </Grid>
           <Grid item xs={2}>
@@ -133,10 +133,14 @@ export default function RecipeCard(props) {
           </Grid>
         </Grid>
 
+        {/* Card media */}
         <Grid className={classes.cardMedia} item xs={12}>
-          <img className={classes.image} src={item.images[0]['url']} />
+          <Link href={`/recipes/${item.id}`}>
+            <img className={classes.image} src={item.images[0]['url']} />
+          </Link>
         </Grid>
 
+        {/* Card content */}
         <Grid className={classes.cardContent} item xs={12}>
           <Typography
             variant='body2'
@@ -148,6 +152,7 @@ export default function RecipeCard(props) {
           </Typography>
         </Grid>
 
+        {/* Card footer */}
         <Grid className={classes.cardFooter} item xs={12}>
           <IconButton size='small' style={{color: theme.palette.primary.main}}>
             <FavoriteBorderIcon />

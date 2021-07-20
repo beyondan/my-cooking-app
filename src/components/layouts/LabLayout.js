@@ -23,7 +23,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import AddIcon from '@material-ui/icons/Add';
 import HelpIcon from '@material-ui/icons/Help';
 // src/
-import { APPNAME, MainPages, KitchenPages } from 'globals';
+import { APPNAME, MainPages, LabPages } from 'globals';
 import theme from 'theme';
 // nextjs
 import Head from 'next/head';
@@ -87,10 +87,10 @@ const useStyles = makeStyles((theme) => ({
 
 /* * * * * * * * * * * * * * * * * * * *
  *                                     *
- *          Kitchen Layout             *
+ *             Lab Layout              *
  *                                     *
  * * * * * * * * * * * * * * * * * * * */
-export default function KitchenLayout({ page, children }) {
+export default function LabLayout({ page, children }) {
   const classes = useStyles(theme);
 
   const css_toggleFocus = (appPage) => clsx({
@@ -112,14 +112,14 @@ export default function KitchenLayout({ page, children }) {
           <Toolbar>
 
             {/* App logo, click to go to home */}
-            <Link href={KitchenPages.Home.href}>
+            <Link href={LabPages.Home.href}>
               <Button className={classes.appLogo}>{APPNAME} | Labs</Button>
             </Link>
 
             {/* Search bar */}
             <Paper component='form' className={classes.searchBar}>
               <InputBase
-                placeholder='Search across your kitchen...'
+                placeholder='Search across your Lab...'
                 inputProps={{ 'aria-label': 'search' }}
                 className={classes.searchInput}
               />
@@ -156,11 +156,11 @@ export default function KitchenLayout({ page, children }) {
           {/* Drawer items */}
           <List>
 
-            {/* Kitchen - Home */}
-            <Link href={KitchenPages.Home.href}>
-              <Tooltip title={KitchenPages.Home.display}>
-                <ListItem button key={KitchenPages.Home.id}>
-                  <ListItemIcon className={css_toggleFocus(KitchenPages.Home)}>
+            {/* Lab - Home */}
+            <Link href={LabPages.Home.href}>
+              <Tooltip title={LabPages.Home.display}>
+                <ListItem button key={LabPages.Home.id}>
+                  <ListItemIcon className={css_toggleFocus(LabPages.Home)}>
                     <HomeIcon />
                   </ListItemIcon>
                 </ListItem>
@@ -169,11 +169,11 @@ export default function KitchenLayout({ page, children }) {
 
             <Divider />
 
-            {/* Kitchen - New Recipe */}
-            <Link href={KitchenPages.NewRecipe.href}>
-              <Tooltip title={KitchenPages.NewRecipe.display}>
-                <ListItem button key={KitchenPages.NewRecipe.id}>
-                  <ListItemIcon className={css_toggleFocus(KitchenPages.NewRecipe)}>
+            {/* Lab - New Recipe */}
+            <Link href={LabPages.NewRecipe.href}>
+              <Tooltip title={LabPages.NewRecipe.display}>
+                <ListItem button key={LabPages.NewRecipe.id}>
+                  <ListItemIcon className={css_toggleFocus(LabPages.NewRecipe)}>
                     <AddIcon />
                   </ListItemIcon>
                 </ListItem>
@@ -182,7 +182,7 @@ export default function KitchenLayout({ page, children }) {
 
             <Divider />
 
-            {/* Kitchen - Help */}
+            {/* Lab - Help */}
             <Link href={MainPages.Help.href}>
               <Tooltip title={MainPages.Help.display}>
                 <ListItem button key={MainPages.Help.id}>

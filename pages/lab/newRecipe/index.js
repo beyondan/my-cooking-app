@@ -1,4 +1,4 @@
-// https://mydomain/kitchen/create
+// https://mydomain/lab/create
 
 import React, { useState } from 'react';
 // core ui
@@ -9,8 +9,8 @@ import {
 } from '@material-ui/core';
 // src/
 import { Section } from 'components';
-import { KitchenLayout } from 'components/layouts';
-import { KitchenPages } from 'globals';
+import { LabLayout } from 'components/layouts';
+import { LabPages } from 'globals';
 import theme from 'theme';
 // styles
 import { makeStyles } from '@material-ui/core/styles';
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 /* * * * * * * * * * * * * * * * * * * *
  *                                     *
- *     Kitchen - New Recipe - Index    *
+ *       Lab - New Recipe - Index      *
  *                                     *
  * * * * * * * * * * * * * * * * * * * */
 export default function NewRecipe() {
@@ -88,7 +88,7 @@ export default function NewRecipe() {
   }
 
   return (
-    <KitchenLayout page={KitchenPages.NewRecipe}>
+    <LabLayout page={LabPages.NewRecipe}>
       <div className={classes.root}>
         <CssBaseline />
 
@@ -149,6 +149,6 @@ export default function NewRecipe() {
 
       </div>
 
-    </KitchenLayout>
+    </LabLayout>
   )
 };

@@ -37,6 +37,8 @@ export default function IngredientList(props) {
 
   const classes = useStyles();
 
+  // TODO: optional/replaceable ingredients,
+  // TODO: notes, images
   return (
     <div className={classes.root}>
       <CssBaseline />

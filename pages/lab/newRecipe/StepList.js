@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// TODO: images, step granularity check.
 export default function StepList(props) {
   const {
     items,

@@ -21,8 +21,9 @@ import RestaurantMenuIcon from '@material-ui/icons/RestaurantMenu';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import HelpIcon from '@material-ui/icons/Help';
+
 // src/
-import { APPNAME, MainPages, KitchenPages, UserPages } from 'globals';
+import { APPNAME, MainPages, LabPages, UserPages } from 'globals';
 import theme from 'theme';
 // nextjs
 import Link from 'next/link';
@@ -121,13 +122,11 @@ export default function MainLayout({ page, children }) {
               </IconButton>
             </Paper>
 
-            {/* Go to kitchen button */}
-            <Link href={KitchenPages.NewRecipe.href}>
-              <Tooltip title={KitchenPages.NewRecipe.display}>
-                <Button color='primary'>
-                  <RestaurantMenuIcon />
-                </Button>
-              </Tooltip>
+            {/* Go to lab button */}
+            <Link href={LabPages.Home.href}>
+              <Button color='primary'>
+                Lab
+              </Button>
             </Link>
 
             <Tooltip title={UserPages.MyAccount.display}>
@@ -155,6 +154,18 @@ export default function MainLayout({ page, children }) {
                 <ListItem button key={MainPages.Home.id}>
                   <ListItemIcon className={css_toggleFocus(MainPages.Home)}>
                     <HomeIcon />
+                  </ListItemIcon>
+                </ListItem>
+              </Tooltip>
+            </Link>
+
+            <Divider />
+
+            <Link href={MainPages.Recipes.href}>
+              <Tooltip title={MainPages.Recipes.display}>
+                <ListItem button key={MainPages.Recipes.id}>
+                  <ListItemIcon className={css_toggleFocus(MainPages.Recipes)}>
+                    <RestaurantMenuIcon />
                   </ListItemIcon>
                 </ListItem>
               </Tooltip>
