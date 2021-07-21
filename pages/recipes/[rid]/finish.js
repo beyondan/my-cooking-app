@@ -4,7 +4,8 @@ import { useRouter } from 'next/router';
 import { MainLayout } from 'components/layouts';
 import { MainPages, dummyRecipes } from 'globals';
 import theme from 'theme';
-import { Button, Link } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import Link from 'next/link';
 
 export default function Finish() {
   const router = useRouter();

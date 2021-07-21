@@ -251,14 +251,14 @@ export const dummyIngredients = [
   {
     id: 61,
     rid: 1,
-    iid: 61,
+    iid: 11,
     name: 'Sesame oil',
     amount: '1 tsp',
   },
   {
     id: 62,
     rid: 1,
-    iid: 62,
+    iid: 12,
     name: 'Scallion - chopped',
     amount: '1 tsp',
   },

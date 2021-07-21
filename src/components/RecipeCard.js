@@ -4,8 +4,10 @@ import {
   Avatar,
   CssBaseline,
   Grid,
-  Link,
   IconButton,
+  Link,
+  Paper,
+  Tooltip,
   Typography
 } from '@material-ui/core';
 // core ui - icons
@@ -31,7 +33,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
-    backgroundColor: '#efefef',
+    backgroundColor: '#fafafa',
+  },
+  link: {
+    color: theme.palette.secondary.main,
   },
   cardHeader: {
     height: CARD_HEADER_HEIGHT,
@@ -44,13 +49,17 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
   },
   title: {
-    paddingTop: 5,
+    marginTop: 5,
     paddingLeft: 5,
-    color: theme.palette.primary.dark,
+    color: theme.palette.secondary.dark,
+    fontSize: '0.9rem',
+    fontWeight: 'bold',
   },
   author: {
     paddingLeft: 5,
-    color: theme.palette.primary.main,
+    color: theme.palette.secondary.light,
+    fontSize: '0.7rem',
+    fontWeight: 'bold',
   },
   cardMedia: {
     paddingTop: 5,
@@ -93,38 +102,32 @@ export default function RecipeCard(props) {
           container item xs={12}
         >
           <Grid item xs={2}>
-            <Avatar
-              aria-label='recipe' 
-              className={classes.avatar}
-            >
-              DB
-            </Avatar>
+            <Link href={`/account/${item.author}`}>
+              <Avatar
+                aria-label='recipe' 
+                className={classes.avatar}
+              >
+                DB
+              </Avatar>
+            </Link>
           </Grid>
           <Grid container item xs={8}>
-            <Grid item xs={12}>
-              <Link href={`/recipes/${item.id}`}>
-                <Typography
-                  className={classes.title}
-                  variant='body2'
-                  component='p'
-                  noWrap
-                >
-                  {item.title}  
-                </Typography>
-              </Link>
-            </Grid>
-            <Grid item xs={12}>
-              <Link href={`/account/${item.author}`}>
-                <Typography
-                  className={classes.author}
-                  variant='body2'
-                  component='p'
-                  noWrap
-                >
-                  {item.author}
-                </Typography>
-              </Link>
-            </Grid>
+            <div style={{float: 'top'}}>
+              <Grid item xs={12}>
+                <Link className={classes.link} href={`/recipes/${item.id}`}>
+                  <Tooltip title={item.title} enterDelay={1000} placement='top'>
+                    <Typography className={classes.title} noWrap>{item.title}</Typography>
+                  </Tooltip>
+                </Link>
+              </Grid>
+              <Grid item xs={12}>
+                <Link className={classes.link} href={`/account/${item.author}`}>
+                  <Tooltip title={item.author} enterDelay={1000} placement='top'>
+                    <Typography className={classes.author} noWrap>{item.author}</Typography>
+                  </Tooltip>
+                </Link>
+              </Grid>
+            </div>
           </Grid>
           <Grid item xs={2}>
             <IconButton aria-label='settings'>

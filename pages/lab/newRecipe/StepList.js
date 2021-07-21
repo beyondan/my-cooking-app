@@ -45,7 +45,7 @@ export default function StepList(props) {
         {
           items.map((item, index) => {
             return (
-              <Grid container item xs={12} spacing={1} key={`step_${index}`}>
+              <Grid container item xs={12} spacing={1} key={index}>
                 <Grid item xs={11}>
                   <TextField
                     fullWidth

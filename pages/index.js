@@ -47,7 +47,7 @@ export default function Home() {
           {
             dummyRecipes.map((item, index) => {
               return (
-                <ListItem key={`recipe_${index}`}>
+                <ListItem key={index}>
                   <RecipeCard item={item}/>
                 </ListItem>
               );  

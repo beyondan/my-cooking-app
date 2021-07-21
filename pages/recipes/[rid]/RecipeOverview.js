@@ -4,6 +4,8 @@ import React from 'react';
 import {
   Button,
   Grid,
+  List,
+  ListItem,
   Table,
   TableBody,
   TableCell,
@@ -20,10 +22,16 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
+  section: {
+    marginTop: theme.spacing(5),
+  },
+  image: {
+    height: 300,
+    objectFit: 'cover',
+  },
   startButton: {
     marginTop: theme.spacing(2),
-  }
-
+  },
 }));
 
 export default function RecipeOverview(props) {
@@ -40,12 +48,41 @@ export default function RecipeOverview(props) {
       <div className={classes.root}>
         <Grid container>
           {/* Recipe title */}
-          <Grid item xs={12}>
-            <Section variant='h5' title={`${recipe.title}`} />
+          <Grid item xs={10}>
+            <h1 style={{color: theme.palette.secondary.main}}>
+              {recipe.title}
+            </h1>
+          </Grid>
+
+          {/* Start button - start at sid 0. */}
+          <Grid item xs={2}>
+            <Link href={`/recipes/${rid}/guide?sid=0`}>
+              <Button
+                className={classes.startButton}
+                variant='contained'
+                color='secondary'
+                size='large'
+              >
+                Start
+              </Button>
+            </Link>
+          </Grid>
+
+          {/* Images */}
+          <Grid item xs={12} className={classes.section}>
+            <List>
+              {
+                recipe.images.map((image) => (
+                  <ListItem>
+                    <img className={classes.image} src={image.url} />
+                  </ListItem>
+                ))
+              }
+            </List>
           </Grid>
 
           {/* Ingredients */}
-          <Grid item xs={12}>
+          <Grid item xs={12} className={classes.section}>
             <Section title='Ingredients' />
           </Grid>
           <Grid item xs={12}>
@@ -59,13 +96,13 @@ export default function RecipeOverview(props) {
               </TableHead>
               <TableBody>
                 {
-                  ingredients.map(i => (
-                    <TableRow key={i.id}>
+                  ingredients.map(ingr => (
+                    <TableRow key={ingr.id}>
                       <TableCell component='th' scope='row'>
-                        {i.iid + 1}
+                        {ingr.iid + 1}
                       </TableCell>
-                      <TableCell align='left'>{i.name}</TableCell>
-                      <TableCell align='left'>{i.amount}</TableCell>
+                      <TableCell align='left'>{ingr.name}</TableCell>
+                      <TableCell align='left'>{ingr.amount}</TableCell>
                     </TableRow>
                   ))
                 }
@@ -74,7 +111,7 @@ export default function RecipeOverview(props) {
           </Grid>
 
           {/* Steps */}
-          <Grid item xs={12}>
+          <Grid item xs={12} className={classes.section}>
             <Section title='Steps' />
           </Grid>
           <Grid item xs={12}>
@@ -87,12 +124,12 @@ export default function RecipeOverview(props) {
               </TableHead>
               <TableBody>
                 {
-                  steps.map(s => (
-                    <TableRow key={s.id}>
+                  steps.map(step => (
+                    <TableRow key={step.id}>
                       <TableCell component='th' scope='row'>
-                        {s.sid + 1}
+                        {step.sid + 1}
                       </TableCell>
-                      <TableCell align='left'>{s.stepText}</TableCell>
+                      <TableCell align='left'>{step.stepText}</TableCell>
                     </TableRow>
                   ))
                 }
@@ -100,16 +137,16 @@ export default function RecipeOverview(props) {
             </Table>
           </Grid>
 
-          {/* Start button */}
-          <Grid item xs={12}>
-            <Link href={`/recipes/${rid}/cook/${0}`}>
+          {/* Start button - start at sid 0. */}
+          <Grid item xs={12} className={classes.section}>
+            <Link href={`/recipes/${rid}/guide?sid=0`}>
               <Button
                 className={classes.startButton}
-                variant='outlined'
+                variant='contained'
                 color='secondary'
                 size='large'
               >
-                Start cooking!
+                Start
               </Button>
             </Link>
           </Grid>

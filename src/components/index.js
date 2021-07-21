@@ -1,5 +1,6 @@
 
+import ErrorText from './ErrorText';
 import RecipeCard from './RecipeCard';
 import Section from './Section';
 
-export { RecipeCard, Section };
+export { ErrorText, RecipeCard, Section };

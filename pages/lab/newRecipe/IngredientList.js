@@ -47,7 +47,7 @@ export default function IngredientList(props) {
         {
           items.map((item, index) => {
             return (
-              <Grid container item xs={12} spacing={1} key={`ingredient_${index}`}>
+              <Grid container item xs={12} spacing={1} key={index}>
                 <Grid item xs={3}>
                   <TextField
                     fullWidth

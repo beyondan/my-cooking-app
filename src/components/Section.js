@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   title: {
-    margin: theme.spacing(2, 0),
+    marginBottom: theme.spacing(2),
     color: theme.palette.secondary.main,
   },
 }));
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Section(props) {
   const { 
     title,
-    variant = 'body1',
+    variant = 'h6',
   } = props;
   const classes = useStyles(theme);
 
