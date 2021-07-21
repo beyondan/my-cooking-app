@@ -1,4 +1,5 @@
 
+import RecipeCard from './RecipeCard';
 import Section from './Section';
 
-export { Section };
+export { RecipeCard, Section };

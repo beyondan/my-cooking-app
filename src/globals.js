@@ -2,7 +2,7 @@ export const APPNAME = 'My Cooking App';
 export const MainPages = {
   Home: {
     id: 'AppHome',
-    href: '/home',
+    href: '/',
     display: 'home',
   },
   Recipes: {
@@ -20,7 +20,7 @@ export const MainPages = {
 export const LabPages = {
   Home: {
     id: 'LabHome',
-    href: '/lab/home',
+    href: '/lab',
     display: 'lab home',
   },
   NewRecipe: {

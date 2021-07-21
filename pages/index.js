@@ -1,35 +1,61 @@
-// Main application landing page (https://mydomain/).
-// Automatically redirects to home page (https://mydomain/home).
+// https://mydomain/home
+
 import React from 'react';
-import { useRouter } from 'next/router';
+// core ui
+import { 
+  Grid,
+  IconButton,
+  List,
+  ListItem,
+  Typography
+} from '@material-ui/core';
+// core ui - icons
+
+// src/
+import { RecipeCard, Section } from 'components';
+import { MainLayout } from 'components/layouts';
+import { MainPages, dummyRecipes } from 'globals';
+import theme from 'theme';
+
+// styles
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  hlist: {
+    display: 'flex',
+    flexDirection: 'row',
+    padding: 0,
+  },
+}));
 
 /* * * * * * * * * * * * * * * * * * * *
  *                                     *
- *   Index page. Redirects to /home.   *
+ *                 Home                *
  *                                     *
  * * * * * * * * * * * * * * * * * * * */
-export default function Index() {
-  const router = useRouter();
-  const [loaded, setLoaded] = React.useState(false);
-
-  // Redirect automatically.
-  React.useEffect(() => {
-    if (router.pathname == '/') {
-      router.replace('/home');
-    }
-    else {
-      // Somehow, /index is loaded but the path is not '/'. 
-      // AFAIK, this should never happen.
-      setLoaded(true);
-    }
-  }, [])
-
-  if (!loaded){
-    return <div></div>;
-  }
+export default function Home() {
+  const classes = useStyles(theme);
 
   return (
-    <div>
-    </div>
+    <MainLayout page={MainPages.Home}>
+      <Grid container>
+        <Grid item xs={12}>
+          <Section title='Subscriptions' />
+        </Grid>
+        <Grid container item xs={12}>
+          <List className={classes.hlist}>
+          {
+            dummyRecipes.map((item, index) => {
+              return (
+                <ListItem key={`recipe_${index}`}>
+                  <RecipeCard item={item}/>
+                </ListItem>
+              );  
+            })
+          }
+          </List>
+        </Grid>
+      </Grid>
+    </MainLayout>
   );
-}
+};
