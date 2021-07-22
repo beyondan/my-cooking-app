@@ -1,5 +1,5 @@
 // Main entrypoint of the entire application.
-import '../styles/globals.css'
+import 'styles/globals.css'
 
 import React from 'react';
 import PropTypes from 'prop-types';

@@ -37,11 +37,16 @@ const useStyles = makeStyles((theme) => ({
 export default function NewRecipe() {
   const classes = useStyles(theme);
   const [recipeTitle, setRecipeTitle] = useState('');
+  const [recipeSummary, setRecipeSummary] = useState('');
   const [ingredients, setIngredients] = useState([{name: '', amount: ''}]);
   const [steps, setSteps] = useState(['']);
 
   const handleChangeRecipeTitle = (e) => {
     setRecipeTitle(e.target.value);
+  }
+
+  const handleChangeRecipeSummary = (e) => {
+    setRecipeSummary(e.target.value);
   }
 
   // IngredientList props
@@ -98,6 +103,14 @@ export default function NewRecipe() {
             <RecipeTitle 
               value={recipeTitle} 
               onChange={handleChangeRecipeTitle} 
+            />
+          </Grid>
+
+          {/* RecipeSummary */}
+          <Grid item xs={12}>
+            <RecipeSummary
+              value={recipeSummary} 
+              onChange={handleChangeRecipeSummary} 
             />
           </Grid>
 
