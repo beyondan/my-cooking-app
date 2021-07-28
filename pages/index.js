@@ -1,6 +1,6 @@
 // https://mydomain/home
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // core ui
 import { 
   Grid,
@@ -12,9 +12,9 @@ import {
 // core ui - icons
 
 // src/
-import { RecipeCard, Section } from 'components';
+import { API, RecipeCard, Section } from 'components';
 import { MainLayout } from 'components/layouts';
-import { MainPages, dummyRecipes } from 'globals';
+import { MainPages } from 'globals';
 import theme from 'theme';
 
 // styles
@@ -30,25 +30,36 @@ const useStyles = makeStyles((theme) => ({
 
 /* * * * * * * * * * * * * * * * * * * *
  *                                     *
- *                 Home                *
+ *               Home                  *
  *                                     *
  * * * * * * * * * * * * * * * * * * * */
-export default function Home() {
+export default function Index() {
   const classes = useStyles(theme);
+  const [recipes, setRecipes] = useState();
+
+  useEffect(() => {
+    API.get('/recipes')
+      .then(res => setRecipes(res.data))
+      .catch(err => console.log(err));
+  }, [])
+
+  if (!recipes) {
+    return <div></div>
+  }
 
   return (
     <MainLayout page={MainPages.Home}>
       <Grid container>
         <Grid item xs={12}>
-          <Section title='Subscriptions' />
+          <Section title='My Favorites' />
         </Grid>
         <Grid container item xs={12}>
           <List className={classes.hlist}>
           {
-            dummyRecipes.map((item, index) => {
+            recipes.map((recipe, index) => {
               return (
                 <ListItem key={index}>
-                  <RecipeCard item={item}/>
+                  <RecipeCard recipe={recipe}/>
                 </ListItem>
               );  
             })

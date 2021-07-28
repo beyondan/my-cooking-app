@@ -1,6 +1,6 @@
-// https://mydomain/home
+// https://mydomain/recipes
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // core ui
 import { 
   Grid,
@@ -12,9 +12,9 @@ import {
 // core ui - icons
 
 // src/
-import { RecipeCard, Section } from 'components';
+import { API, RecipeCard, Section } from 'components';
 import { MainLayout } from 'components/layouts';
-import { MainPages, dummyRecipes } from 'globals';
+import { MainPages } from 'globals';
 import theme from 'theme';
 
 // styles
@@ -35,6 +35,17 @@ const useStyles = makeStyles((theme) => ({
  * * * * * * * * * * * * * * * * * * * */
 export default function Index() {
   const classes = useStyles(theme);
+  const [recipes, setRecipes] = useState();
+
+  useEffect(() => {
+    API.get('/recipes')
+      .then(res => setRecipes(res.data))
+      .catch(err => console.log(err));
+  }, [])
+
+  if (!recipes) {
+    return <div></div>
+  }
 
   return (
     <MainLayout page={MainPages.Recipes}>
@@ -45,12 +56,12 @@ export default function Index() {
         <Grid container item xs={12}>
           <List className={classes.hlist}>
           {
-            dummyRecipes.map((item, index) => {
+            recipes.map((recipe, index) => {
               return (
                 <ListItem key={index}>
-                  <RecipeCard item={item}/>
+                  <RecipeCard recipe={recipe}/>
                 </ListItem>
-              );  
+              );
             })
           }
           </List>

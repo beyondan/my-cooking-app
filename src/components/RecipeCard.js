@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // core ui
 import { 
   Avatar,
   CssBaseline,
   Grid,
+  Hidden,
   IconButton,
   Link,
   Paper,
@@ -54,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.dark,
     fontSize: '0.9rem',
     fontWeight: 'bold',
+    overflow: 'hidden',
   },
   author: {
     paddingLeft: 5,
@@ -84,9 +86,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeCard(props) {
-  const {
-    item
-  } = props;
+  const { recipe } = props;
 
   const classes = useStyles(theme);
 
@@ -102,7 +102,7 @@ export default function RecipeCard(props) {
           container item xs={12}
         >
           <Grid item xs={2}>
-            <Link href={`/account/${item.author}`}>
+            <Link href={`/account/${recipe.author}`}>
               <Avatar
                 aria-label='recipe' 
                 className={classes.avatar}
@@ -114,16 +114,16 @@ export default function RecipeCard(props) {
           <Grid container item xs={8}>
             <div style={{float: 'top'}}>
               <Grid item xs={12}>
-                <Link className={classes.link} href={`/recipes/${item.id}`}>
-                  <Tooltip title={item.title} enterDelay={1000} placement='top'>
-                    <Typography className={classes.title} noWrap>{item.title}</Typography>
+                <Link className={classes.link} href={`/recipes/${recipe.id}`}>
+                  <Tooltip title={recipe.title} enterDelay={1000} placement='top'>
+                    <Typography className={classes.title} noWrap>{recipe.title}</Typography>
                   </Tooltip>
                 </Link>
               </Grid>
               <Grid item xs={12}>
-                <Link className={classes.link} href={`/account/${item.author}`}>
-                  <Tooltip title={item.author} enterDelay={1000} placement='top'>
-                    <Typography className={classes.author} noWrap>{item.author}</Typography>
+                <Link className={classes.link} href={`/account/${recipe.author}`}>
+                  <Tooltip title={recipe.author} enterDelay={1000} placement='top'>
+                    <Typography className={classes.author} noWrap>{recipe.author}</Typography>
                   </Tooltip>
                 </Link>
               </Grid>
@@ -137,11 +137,16 @@ export default function RecipeCard(props) {
         </Grid>
 
         {/* Card media */}
-        <Grid className={classes.cardMedia} item xs={12}>
-          <Link href={`/recipes/${item.id}`}>
-            <img className={classes.image} src={item.images[0]['url']} />
-          </Link>
-        </Grid>
+        {
+          recipe.images && recipe.images.length > 0 ?
+            <Grid className={classes.cardMedia} item xs={12}>
+              <Link href={`/recipes/${recipe.id}`}>
+                <img className={classes.image} src={recipe.images[0]['url']} />
+              </Link>
+            </Grid>
+            :
+            null
+        }
 
         {/* Card content */}
         <Grid className={classes.cardContent} item xs={12}>
@@ -151,7 +156,7 @@ export default function RecipeCard(props) {
             component='p'
             noWrap
           >
-            {item.summary}  
+            {recipe.summary}  
           </Typography>
         </Grid>
 

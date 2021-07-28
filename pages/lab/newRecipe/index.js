@@ -1,6 +1,8 @@
 // https://mydomain/lab/create
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 // core ui
 import {
   Button,
@@ -8,7 +10,7 @@ import {
   Grid,
 } from '@material-ui/core';
 // src/
-import { Section } from 'components';
+import { API, Section } from 'components';
 import { LabLayout } from 'components/layouts';
 import { LabPages } from 'globals';
 import theme from 'theme';
@@ -16,8 +18,12 @@ import theme from 'theme';
 import { makeStyles } from '@material-ui/core/styles';
 // Child components
 import IngredientList from './IngredientList';
+import RecipeSummary from './RecipeSummary';
 import RecipeTitle from './RecipeTitle';
 import StepList from './StepList';
+
+import { v4 as uuidv4 } from 'uuid';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +46,8 @@ export default function NewRecipe() {
   const [recipeSummary, setRecipeSummary] = useState('');
   const [ingredients, setIngredients] = useState([{name: '', amount: ''}]);
   const [steps, setSteps] = useState(['']);
+  const [canUpload, setCanUpload] = useState(false);
+  const [isUploaded, setIsUploaded] = useState(false);
 
   const handleChangeRecipeTitle = (e) => {
     setRecipeTitle(e.target.value);
@@ -89,7 +97,55 @@ export default function NewRecipe() {
 
   // Upload handling
   const handleClickUpload = () => {
-    
+    API.post('/recipes', {
+      id: uuidv4(),
+      author: 'Daniel Byun',
+      title: recipeTitle,
+      summary: recipeSummary,
+      images: [],
+      ingredients: ingredients.reduce((acc, ingr, index) => [...acc, {
+        id: index,
+        name: ingr.name,
+        amount: ingr.amount,
+      }], []),
+      steps: steps.reduce((acc, stepText, index) => [...acc, {
+        id: index,
+        text: stepText,
+      }], []),
+    })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+
+    setIsUploaded(true);
+  }
+
+  if (isUploaded) {
+    return (
+      <LabLayout page={LabPages.NewRecipe}>
+        <div className={classes.root}>
+          <CssBaseline />
+
+          <Grid container>
+            <Grid item xs={12}>
+              <h1>Congratulations!</h1>
+              <h1>You finished uploading {recipeTitle}</h1>
+            </Grid>
+            <Grid item xs={12}>
+              <Link href='/lab'>
+                <Button variant='outlined' color='secondary' size='large' style={{marginTop: theme.spacing(2)}}>
+                  Return to lab.
+                </Button>
+              </Link>
+            </Grid>
+
+          </Grid>
+        </div>
+      </LabLayout>
+    );
   }
 
   return (
@@ -97,7 +153,7 @@ export default function NewRecipe() {
       <div className={classes.root}>
         <CssBaseline />
 
-        <Grid container>
+        <Grid container spacing={3}>
           {/* RecipeTitle */}
           <Grid item xs={12}>
             <RecipeTitle 
@@ -155,7 +211,7 @@ export default function NewRecipe() {
               color='secondary'
               onClick={handleClickUpload}
             >
-              {'Review & Upload'}
+              {'Submit'}
             </Button>
           </Grid>
         </Grid>

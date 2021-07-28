@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import { grey } from '@material-ui/core/colors';
 
 const WHITE = '#ffffff';
@@ -31,7 +31,7 @@ const ON_SECONDARY = '#cccccc';
 const ERROR = '#ff1744';
 
 // Create a theme instance.
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: PRIMARY,
