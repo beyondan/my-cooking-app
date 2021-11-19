@@ -22,16 +22,16 @@ import theme from 'theme';
 // styles
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import { NoEncryption } from '@material-ui/icons';
+import { red } from '@material-ui/core/colors';
 
 const CARD_WIDTH = 300;
 const CARD_HEIGHT = 370;
-const CARD_HEADER_HEIGHT = 50;
-const CARD_HEADER_AVATAR_WIDTH = 40;
-const CARD_HEADER_AVATAR_HEIGHT = 40;
-
+const CARD_HEADER_HEIGHT = 60;
 const CARD_MEDIA_HEIGHT = 250;
 const CARD_CONTENT_HEIGHT = 30;
-const CARD_FOOTER_HEIGHT = 40;
+const CARD_FOOTER_HEIGHT = 30;
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,31 +42,37 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '15px 15px 5px rgba(0,0,0,0.6)',
   },
   link: {
-    color: theme.palette.secondary.main,
+    textDecoration: "none",
   },
   cardHeader: {
     height: CARD_HEADER_HEIGHT,
     backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
-  avatar: {
-    width: CARD_HEADER_AVATAR_WIDTH,
-    height: CARD_HEADER_AVATAR_HEIGHT,
-    margin: 'auto',
-    width: CARD_HEADER_AVATAR_WIDTH,
-    height: CARD_HEADER_AVATAR_HEIGHT,
-    top: '50%',
-    '-ms-transform': 'translateY(-50%)',
-    transform: 'translateY(-50%)',
-    backgroundColor: theme.palette.secondary.dark,
-    fontSize: '16px',
+  titleContainer: {
+    paddingTop: 5,
+    paddingLeft: 5,
+  },
+  avatarContainer: {
+    width: 30,
+    height: 20,
+    paddingLeft: 5,
+    paddingTop: 1,
+  },
+  authorContainer: {
+    width: CARD_WIDTH - 30,
+    paddingBottom: 5,
   },
   title: {
-    width: CARD_WIDTH - CARD_HEADER_AVATAR_WIDTH - 50, // magic 50 to fit it.
-    marginTop: 5,
-    paddingLeft: 5,
+    width: CARD_WIDTH,
     color: theme.palette.text.primary,
     fontSize: '16px',
     fontWeight: 'bold',
+  },
+  avatar: {
+    width: 20,
+    height: 20,
+    backgroundColor: theme.palette.secondary.dark,
+    fontSize: '12px',
   },
   author: {
     paddingLeft: 5,
@@ -81,19 +87,18 @@ const useStyles = makeStyles((theme) => ({
   cardMedia: {
     width: CARD_WIDTH,
     height: CARD_MEDIA_HEIGHT,
-    padding: 5,
   },
   cardContent: {
     width: CARD_WIDTH,
     height: CARD_CONTENT_HEIGHT,
-    padding: 5,
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    paddingTop: 5,
+    paddingLeft: 5,
+    backgroundColor: "rgba(0,0,0,0.6)",
   },
   cardFooter: {
     width: CARD_WIDTH,
     height: CARD_FOOTER_HEIGHT,
-    padding: 5,
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
+    backgroundColor: "rgba(0,0,0,0.6)",
   },
 }));
 
@@ -103,9 +108,9 @@ export default function RecipeCard(props) {
 
   const classes = useStyles(theme);
 
-  function hasNextImage() { return imageId < recipe.images.length-1; }
-  function clickNextImage() { setImageId(imageId+1); }
-  function clickPrevImage() { setImageId(imageId-1); }
+  const hasNextImage = () => imageId < recipe.images.length-1;
+  const clickNextImage = () => { setImageId(imageId+1); }
+  const clickPrevImage = () => { setImageId(imageId-1); }
 
   return (
     <div className={classes.root}>
@@ -119,75 +124,76 @@ export default function RecipeCard(props) {
       >
 
         {/* Card header */}
-        <Grid
-          className={classes.cardHeader} 
-          container item xs={12}
-        >
-          <Grid item xs={2}>
-            <Link href={`/account/${recipe.author}`}>
-              <Avatar
-                aria-label='recipe'
-                className={classes.avatar}
-              >
-                DB
-              </Avatar>
+        <Grid container item xs={12} className={classes.cardHeader}>
+
+          {/* Recipe title */ }
+          <Grid item xs={12} className={classes.titleContainer}>
+            <Link href={`/recipes/${recipe.id}`} className={classes.link}>
+              <Tooltip title={recipe.title}>
+                <Typography display='block' noWrap className={classes.title}>{recipe.title}</Typography>
+              </Tooltip>
             </Link>
           </Grid>
-          <Grid container item xs={10}>
-            <div style={{float: 'top'}}>
-              <Grid item xs={12}>
-                <Link className={classes.link} href={`/recipes/${recipe.id}`}>
-                  <Tooltip title={recipe.title}>
-                    <Typography className={classes.title} display='block' noWrap>{recipe.title}</Typography>
-                  </Tooltip>
-                </Link>
-              </Grid>
-              <Grid item xs={12}>
-                <Link className={classes.link} href={`/account/${recipe.author}`}>
-                  <Tooltip title={recipe.author}>
-                    <Typography className={classes.author} noWrap>{recipe.author}</Typography>
-                  </Tooltip>
-                </Link>
-              </Grid>
+
+          {/* Recipe author */}
+          <Grid item xs={1}>
+            {/* Author avatar */}
+            <div className={classes.avatarContainer}>
+              <Link href={`/account/${recipe.author}`}>
+                <Avatar aria-label='recipe' className={classes.avatar}>
+                  DB
+                </Avatar>
+              </Link>
             </div>
           </Grid>
+          <Grid item xs={11}>
+            {/* Author name */}
+            <div className={classes.authorContainer}>
+              <Link href={`/account/${recipe.author}`} className={classes.link}>
+                <Tooltip title={recipe.author}>
+                  <Typography noWrap className={classes.author}>{recipe.author}</Typography>
+                </Tooltip>
+              </Link>
+            </div>
+          </Grid>
+
         </Grid>
 
         {/* Card media */}
-          <Grid container item xs={12} className={classes.cardMedia} direction="column">
-            {
-              imageId > 0 ?
-              <Grid item xs={1}>
-                <ArrowBackIosIcon 
-                  onClick={clickPrevImage}
-                  style={{
-                    width: 20,
-                    height: CARD_MEDIA_HEIGHT,
-                    color: "rgba(0,0,0,0.6)"
-                  }}/>
-              </Grid> : null
-            }
+        <Grid container item xs={12} direction="column" className={classes.cardMedia}>
+          {
+            imageId > 0 ?
+            <Grid item xs={1}>
+              <ArrowBackIosIcon 
+                onClick={clickPrevImage}
+                style={{
+                  width: 40,
+                  height: CARD_MEDIA_HEIGHT,
+                  color: "rgba(0,0,0,0.3)"
+                }}/>
+            </Grid> : null
+          }
 
-            <Grid item xs={12}>
-              <Link href={`/recipes/${recipe.id}`}>
-                <div style={{minWidth: CARD_WIDTH-40, maxWidth: CARD_WIDTH, height: CARD_MEDIA_HEIGHT}} />
-              </Link>
-            </Grid>
-
-            {
-              hasNextImage() ? 
-              <Grid item xs={1}>
-                <ArrowForwardIosIcon
-                  onClick={clickNextImage}
-                  style={{
-                    width: 20,
-                    height: CARD_MEDIA_HEIGHT,
-                    color: "rgba(0,0,0,0.6)"
-                  }}
-                />
-              </Grid> : null
-            }
+          <Grid item xs={12}>
+            <Link href={`/recipes/${recipe.id}`}>
+              <div style={{ minWidth: CARD_WIDTH-40, maxWidth: CARD_WIDTH, height: CARD_MEDIA_HEIGHT }} />
+            </Link>
           </Grid>
+
+          {
+            hasNextImage() ? 
+            <Grid item xs={1}>
+              <ArrowForwardIosIcon
+                onClick={clickNextImage}
+                style={{
+                  width: 40,
+                  height: CARD_MEDIA_HEIGHT,
+                  color: "rgba(0,0,0,0.3)"
+                }}
+              />
+            </Grid> : null
+          }
+        </Grid>
         
 
         {/* Card content */}
@@ -204,10 +210,10 @@ export default function RecipeCard(props) {
 
         {/* Card footer */}
         <Grid className={classes.cardFooter} item xs={12}>
-          <IconButton size='small' style={{color: theme.palette.primary.main}}>
+          <IconButton size='small' style={{color: theme.palette.text.secondary, bottom: 3}}>
             <FavoriteBorderIcon />
           </IconButton>
-          <IconButton size='small' style={{color: theme.palette.primary.main}}>
+          <IconButton size='small' style={{color: theme.palette.text.secondary, bottom: 3}}>
             <ShareOutlinedIcon />
           </IconButton>
         </Grid>

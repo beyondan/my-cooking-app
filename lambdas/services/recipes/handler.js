@@ -19,6 +19,7 @@ const response = (statusCode, body) => ({
  */
 module.exports.getRecipes = async (event) => {
   console.log(event);
+
   let recipes = null;
   let error = null;
 
@@ -98,8 +99,8 @@ module.exports.getRecipe = async (event) => {
 /*
  * POST /recipes
  */
-module.exports.putRecipe = async (event) => {
-  console.log(event); // Contains incoming request data (e.g., query params, headers and more)
+module.exports.postRecipe = async (event) => {
+  console.log(event);
 
   let req = JSON.parse(event.body);
   let res = null;
