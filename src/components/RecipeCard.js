@@ -25,8 +25,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const CARD_WIDTH = 300;
 const CARD_HEIGHT = 370;
 const CARD_HEADER_HEIGHT = 50;
-const CARD_HEADER_AVATAR_WIDTH = 35;
-const CARD_HEADER_AVATAR_HEIGHT = 35;
+const CARD_HEADER_AVATAR_WIDTH = 40;
+const CARD_HEADER_AVATAR_HEIGHT = 40;
+
 const CARD_MEDIA_HEIGHT = 250;
 const CARD_CONTENT_HEIGHT = 30;
 const CARD_FOOTER_HEIGHT = 40;
@@ -50,6 +51,8 @@ const useStyles = makeStyles((theme) => ({
     width: CARD_HEADER_AVATAR_WIDTH,
     height: CARD_HEADER_AVATAR_HEIGHT,
     margin: 'auto',
+    width: CARD_HEADER_AVATAR_WIDTH,
+    height: CARD_HEADER_AVATAR_HEIGHT,
     top: '50%',
     '-ms-transform': 'translateY(-50%)',
     transform: 'translateY(-50%)',
@@ -57,19 +60,17 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '16px',
   },
   title: {
-    width: CARD_WIDTH - CARD_HEADER_AVATAR_WIDTH - 50,
+    width: CARD_WIDTH - CARD_HEADER_AVATAR_WIDTH - 50, // magic 50 to fit it.
     marginTop: 5,
     paddingLeft: 5,
     color: theme.palette.text.primary,
-    fontSize: '14px',
+    fontSize: '16px',
     fontWeight: 'bold',
-    overflow: 'hidden',
   },
   author: {
     paddingLeft: 5,
     color: theme.palette.text.secondary,
-    fontSize: '0.7rem',
-    fontWeight: 'bold',
+    fontSize: '16px',
   },
   cardMedia: {
     paddingTop: 5,
@@ -126,28 +127,23 @@ export default function RecipeCard(props) {
               </Avatar>
             </Link>
           </Grid>
-          <Grid container item xs={8}>
+          <Grid container item xs={10}>
             <div style={{float: 'top'}}>
               <Grid item xs={12}>
                 <Link className={classes.link} href={`/recipes/${recipe.id}`}>
-                  <Tooltip title={recipe.title} enterDelay={1000} placement='top'>
-                    <Typography className={classes.title} noWrap>{recipe.title}</Typography>
+                  <Tooltip title={recipe.title}>
+                    <Typography className={classes.title} display='block' noWrap>{recipe.title}</Typography>
                   </Tooltip>
                 </Link>
               </Grid>
               <Grid item xs={12}>
                 <Link className={classes.link} href={`/account/${recipe.author}`}>
-                  <Tooltip title={recipe.author} enterDelay={1000} placement='top'>
+                  <Tooltip title={recipe.author}>
                     <Typography className={classes.author} noWrap>{recipe.author}</Typography>
                   </Tooltip>
                 </Link>
               </Grid>
             </div>
-          </Grid>
-          <Grid item xs={2}>
-            <IconButton aria-label='settings'>
-              <MoreVertIcon />
-            </IconButton>
           </Grid>
         </Grid>
 
