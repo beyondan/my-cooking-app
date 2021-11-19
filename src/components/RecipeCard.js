@@ -15,7 +15,8 @@ import {
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
-
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 // src/
 import theme from 'theme';
 // styles
@@ -72,15 +73,15 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     fontSize: '16px',
   },
-  cardMedia: {
-    paddingTop: 5,
-    width: CARD_WIDTH,
-    height: CARD_MEDIA_HEIGHT,
-  },
   image: {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+  },
+  cardMedia: {
+    width: CARD_WIDTH,
+    height: CARD_MEDIA_HEIGHT,
+    padding: 5,
   },
   cardContent: {
     width: CARD_WIDTH,
@@ -97,9 +98,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeCard(props) {
+  const [imageId, setImageId] = useState(0);
   const { recipe } = props;
 
   const classes = useStyles(theme);
+
+  function hasNextImage() { return imageId < recipe.images.length-1; }
+  function clickNextImage() { setImageId(imageId+1); }
+  function clickPrevImage() { setImageId(imageId-1); }
 
   return (
     <div className={classes.root}>
@@ -107,7 +113,7 @@ export default function RecipeCard(props) {
 
       <Grid container 
         style={{
-          backgroundImage: `url(${recipe.images[0]['url']})`,
+          backgroundImage: `url(${recipe.images[imageId]['url']})`,
           backgroundSize: "cover",
         }}
       >
@@ -148,24 +154,48 @@ export default function RecipeCard(props) {
         </Grid>
 
         {/* Card media */}
-        <Grid className={classes.cardMedia} item xs={12}>
-          <Link href={`/recipes/${recipe.id}`}>
-            {/* {
-              recipe.images && recipe.images.length > 0 ? (
-                <img className={classes.image} src={recipe.images[0]['url']} />
-              ) : (
-                <img className={classes.image} src='https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg' />
-              )
-            } */}
-          </Link>
-        </Grid>
+          <Grid container item xs={12} className={classes.cardMedia} direction="column">
+            {
+              imageId > 0 ?
+              <Grid item xs={1}>
+                <ArrowBackIosIcon 
+                  onClick={clickPrevImage}
+                  style={{
+                    width: 20,
+                    height: CARD_MEDIA_HEIGHT,
+                    color: "rgba(0,0,0,0.6)"
+                  }}/>
+              </Grid> : null
+            }
+
+            <Grid item xs={12}>
+              <Link href={`/recipes/${recipe.id}`}>
+                <div style={{minWidth: CARD_WIDTH-40, maxWidth: CARD_WIDTH, height: CARD_MEDIA_HEIGHT}} />
+              </Link>
+            </Grid>
+
+            {
+              hasNextImage() ? 
+              <Grid item xs={1}>
+                <ArrowForwardIosIcon
+                  onClick={clickNextImage}
+                  style={{
+                    width: 20,
+                    height: CARD_MEDIA_HEIGHT,
+                    color: "rgba(0,0,0,0.6)"
+                  }}
+                />
+              </Grid> : null
+            }
+          </Grid>
+        
 
         {/* Card content */}
-        <Grid className={classes.cardContent} item xs={12}>
+        <Grid item xs={12} className={classes.cardContent}
+        >
           <Typography
             variant='body2'
             color='textPrimary'
-            component='p'
             noWrap
           >
             {recipe.summary}  
