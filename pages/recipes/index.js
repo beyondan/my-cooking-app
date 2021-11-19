@@ -56,13 +56,11 @@ export default function Index() {
         <Grid container item xs={12}>
           <List className={classes.hlist}>
           {
-            recipes.map((recipe, index) => {
-              return (
-                <ListItem key={index}>
-                  <RecipeCard recipe={recipe}/>
-                </ListItem>
-              );
-            })
+            recipes.map((recipe, index) => (
+              <ListItem key={index}>
+                <RecipeCard recipe={recipe} />
+              </ListItem>
+            ))
           }
           </List>
         </Grid>

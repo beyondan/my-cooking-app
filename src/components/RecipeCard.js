@@ -25,6 +25,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const CARD_WIDTH = 300;
 const CARD_HEIGHT = 370;
 const CARD_HEADER_HEIGHT = 50;
+const CARD_HEADER_AVATAR_WIDTH = 35;
+const CARD_HEADER_AVATAR_HEIGHT = 35;
 const CARD_MEDIA_HEIGHT = 250;
 const CARD_CONTENT_HEIGHT = 30;
 const CARD_FOOTER_HEIGHT = 40;
@@ -34,32 +36,38 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
-    backgroundColor: '#fafafa',
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: '15px 15px 5px rgba(0,0,0,0.6)',
   },
   link: {
     color: theme.palette.secondary.main,
   },
   cardHeader: {
     height: CARD_HEADER_HEIGHT,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
   avatar: {
+    width: CARD_HEADER_AVATAR_WIDTH,
+    height: CARD_HEADER_AVATAR_HEIGHT,
     margin: 'auto',
     top: '50%',
     '-ms-transform': 'translateY(-50%)',
     transform: 'translateY(-50%)',
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.secondary.dark,
+    fontSize: '16px',
   },
   title: {
+    width: CARD_WIDTH - CARD_HEADER_AVATAR_WIDTH - 50,
     marginTop: 5,
     paddingLeft: 5,
-    color: theme.palette.secondary.dark,
-    fontSize: '0.9rem',
+    color: theme.palette.text.primary,
+    fontSize: '14px',
     fontWeight: 'bold',
     overflow: 'hidden',
   },
   author: {
     paddingLeft: 5,
-    color: theme.palette.secondary.light,
+    color: theme.palette.text.secondary,
     fontSize: '0.7rem',
     fontWeight: 'bold',
   },
@@ -77,11 +85,13 @@ const useStyles = makeStyles((theme) => ({
     width: CARD_WIDTH,
     height: CARD_CONTENT_HEIGHT,
     padding: 5,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
   cardFooter: {
     width: CARD_WIDTH,
     height: CARD_FOOTER_HEIGHT,
     padding: 5,
+    backgroundColor: "rgba(0, 0, 0, 0.6)",
   },
 }));
 
@@ -94,7 +104,12 @@ export default function RecipeCard(props) {
     <div className={classes.root}>
       <CssBaseline />
 
-      <Grid container>
+      <Grid container 
+        style={{
+          backgroundImage: `url(${recipe.images[0]['url']})`,
+          backgroundSize: "cover",
+        }}
+      >
 
         {/* Card header */}
         <Grid
@@ -104,7 +119,7 @@ export default function RecipeCard(props) {
           <Grid item xs={2}>
             <Link href={`/account/${recipe.author}`}>
               <Avatar
-                aria-label='recipe' 
+                aria-label='recipe'
                 className={classes.avatar}
               >
                 DB
@@ -137,22 +152,23 @@ export default function RecipeCard(props) {
         </Grid>
 
         {/* Card media */}
-        {
-          recipe.images && recipe.images.length > 0 ?
-            <Grid className={classes.cardMedia} item xs={12}>
-              <Link href={`/recipes/${recipe.id}`}>
+        <Grid className={classes.cardMedia} item xs={12}>
+          <Link href={`/recipes/${recipe.id}`}>
+            {/* {
+              recipe.images && recipe.images.length > 0 ? (
                 <img className={classes.image} src={recipe.images[0]['url']} />
-              </Link>
-            </Grid>
-            :
-            null
-        }
+              ) : (
+                <img className={classes.image} src='https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg' />
+              )
+            } */}
+          </Link>
+        </Grid>
 
         {/* Card content */}
         <Grid className={classes.cardContent} item xs={12}>
           <Typography
             variant='body2'
-            color='secondary'
+            color='textPrimary'
             component='p'
             noWrap
           >

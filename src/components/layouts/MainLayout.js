@@ -45,24 +45,17 @@ const useStyles = makeStyles((theme) => ({
   /*    appbar styles    */
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    color: theme.palette.background,
+    backgroundColor: theme.palette.background,
   },
   appLogo: {
     color: theme.palette.primary.main,
   },
-  searchBar: {
-    flex: 1,
-    margin: theme.spacing(0, 10),
-    alignItems: 'center',
-    display: 'flex',
-    border: `1px solid ${theme.palette.background.scale(5)}`,
+  labButton: {
+    color: theme.palette.text.primary,
   },
-  searchInput: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
-  searchButton: {
-    marginLeft: theme.spacing(2),
-    padding: 10,
+  accountIcon: {
+    color: theme.palette.secondary.main,
   },
   
   /*    drawer styles    */
@@ -72,13 +65,12 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: DRAWER_WIDTH,
-    backgroundColor: theme.palette.background,
   },
   focused: {
-    color: theme.palette.primary.dark,
+    color: theme.palette.text.primary,
   },
   unfocused: {
-    color: theme.palette.primary.light,
+    color: theme.palette.text.disabled,
   },
 }));
 
@@ -110,27 +102,15 @@ export default function MainLayout({ page, children }) {
               <Button className={classes.appLogo}>{APPNAME}</Button>
             </Link>
 
-            {/* Search bar */}
-            <Paper component='form' className={classes.searchBar}>
-              <InputBase
-                placeholder='Search'
-                inputProps={{ 'aria-label': 'search' }}
-                className={classes.searchInput}
-              />
-              <IconButton type='submit' className={classes.searchButton}>
-                <SearchIcon />
-              </IconButton>
-            </Paper>
-
             {/* Go to lab button */}
             <Link href={LabPages.Home.href}>
-              <Button color='primary'>
+              <Button className={classes.labButton}>
                 Lab
               </Button>
             </Link>
 
             <Tooltip title={UserPages.MyAccount.display}>
-              <Button color='primary'>
+              <Button className={classes.accountIcon}>
                 <AccountCircleIcon />
               </Button>
             </Tooltip>
@@ -142,6 +122,7 @@ export default function MainLayout({ page, children }) {
           variant='permanent'
           className={classes.drawer}
           classes={{ paper: classes.drawerPaper }}
+          color='default'
         >
           <Toolbar />
 
