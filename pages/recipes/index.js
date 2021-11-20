@@ -1,6 +1,7 @@
 // https://mydomain/recipes
 
 import React, { useEffect, useState } from 'react';
+
 // core ui
 import { 
   Grid,
@@ -51,7 +52,7 @@ export default function Index() {
     <MainLayout page={MainPages.Recipes}>
       <Grid container>
         <Grid item xs={12}>
-          <Section title='My Favorites' />
+          <Section title='This Week' />
         </Grid>
         <Grid container item xs={12}>
           <List className={classes.hlist}>

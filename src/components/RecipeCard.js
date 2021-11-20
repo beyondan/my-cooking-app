@@ -1,4 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
+
+// carousel
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
 // core ui
 import { 
   Avatar,
@@ -103,25 +109,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function RecipeCard(props) {
-  const [imageId, setImageId] = useState(0);
   const { recipe } = props;
 
   const classes = useStyles(theme);
-
-  const hasNextImage = () => imageId < recipe.images.length-1;
-  const clickNextImage = () => { setImageId(imageId+1); }
-  const clickPrevImage = () => { setImageId(imageId-1); }
 
   return (
     <div className={classes.root}>
       <CssBaseline />
 
-      <Grid container 
-        style={{
-          backgroundImage: `url(${recipe.images[imageId]['url']})`,
-          backgroundSize: "cover",
-        }}
-      >
+      <Grid container>
 
         {/* Card header */}
         <Grid container item xs={12} className={classes.cardHeader}>
@@ -161,38 +157,15 @@ export default function RecipeCard(props) {
 
         {/* Card media */}
         <Grid container item xs={12} direction="column" className={classes.cardMedia}>
-          {
-            imageId > 0 ?
-            <Grid item xs={1}>
-              <ArrowBackIosIcon 
-                onClick={clickPrevImage}
-                style={{
-                  width: 40,
-                  height: CARD_MEDIA_HEIGHT,
-                  color: "rgba(0,0,0,0.3)"
-                }}/>
-            </Grid> : null
-          }
-
-          <Grid item xs={12}>
-            <Link href={`/recipes/${recipe.id}`}>
-              <div style={{ minWidth: CARD_WIDTH-40, maxWidth: CARD_WIDTH, height: CARD_MEDIA_HEIGHT }} />
-            </Link>
-          </Grid>
-
-          {
-            hasNextImage() ? 
-            <Grid item xs={1}>
-              <ArrowForwardIosIcon
-                onClick={clickNextImage}
-                style={{
-                  width: 40,
-                  height: CARD_MEDIA_HEIGHT,
-                  color: "rgba(0,0,0,0.3)"
-                }}
-              />
-            </Grid> : null
-          }
+          <Carousel swipeable emulateTouch showThumbs={false} style={{height: CARD_MEDIA_HEIGHT}}>
+            {
+              recipe.images.map((img, index) => (
+                <div>
+                  <img src={img['url']} style={{width: CARD_WIDTH, height: CARD_MEDIA_HEIGHT, objectFit: "cover"}}/>
+                </div>
+              ))
+            }
+          </Carousel>
         </Grid>
         
 
