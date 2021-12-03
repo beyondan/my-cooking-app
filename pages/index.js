@@ -61,7 +61,7 @@ export default function Index() {
                 <ListItem key={index}>
                   <RecipeCard recipe={recipe}/>
                 </ListItem>
-              );  
+              );
             }) 
           }
           </List>
