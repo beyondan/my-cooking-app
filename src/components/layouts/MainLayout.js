@@ -23,7 +23,8 @@ import HomeIcon from '@material-ui/icons/Home';
 import HelpIcon from '@material-ui/icons/Help';
 
 // src/
-import { APPNAME, MainPages, LabPages, UserPages } from 'globals';
+import { APPNAME } from 'globals';
+import { MainPages, LabPages, UserPages } from 'components/layouts';
 import theme from 'theme';
 // nextjs
 import Link from 'next/link';

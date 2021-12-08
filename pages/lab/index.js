@@ -1,8 +1,7 @@
 // Main Lab loading page (https://mydomain/lab/home)
 
 import React from 'react';
-import { LabLayout } from 'components/layouts';
-import { LabPages } from 'globals';
+import { LabLayout, LabPages } from 'components/layouts';
 
 /* * * * * * * * * * * * * * * * * * * *
  *                                     *

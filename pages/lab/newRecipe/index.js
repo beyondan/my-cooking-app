@@ -10,9 +10,9 @@ import {
   Grid,
 } from '@material-ui/core';
 // src/
-import { API, Section } from 'components';
-import { LabLayout } from 'components/layouts';
-import { LabPages } from 'globals';
+import { API } from 'components/api';
+import { LabLayout, LabPages } from 'components/layouts';
+import { Section } from 'components/ui';
 import theme from 'theme';
 // styles
 import { makeStyles } from '@material-ui/core/styles';

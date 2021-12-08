@@ -98,6 +98,7 @@ export default function RecipeCard(props) {
                     width: width,
                     height: headerHeight/2,
                     color: theme.palette.text.primary,
+                    fontSize: '14px',
                   }}
                 >
                   {recipe.title}
@@ -118,17 +119,16 @@ export default function RecipeCard(props) {
               style={{
                 width: headerHeight/2,
                 height: headerHeight/2,
-                paddingLeft: 5,
-                paddingTop: 1,
+                paddingLeft: 1,
               }}
             >
-              <Link href={`/account/${recipe.chef}`}>
+              <Link href={`/account/${recipe.chef['id']}`}>
                 <Avatar aria-label='recipe'
                   style={{
-                    width: 20,
-                    height: 20,
+                    width: 17,
+                    height: 17,
                     backgroundColor: theme.palette.secondary.dark,
-                    fontSize: '12px',
+                    fontSize: '10px',
                   }}
                 >
                   DB
@@ -137,22 +137,23 @@ export default function RecipeCard(props) {
             </div>
           </Grid>
           <Grid item xs={11}>
-            {/* Author name */}
+            {/* Chef name */}
             <div
               style={{
                 width: width - headerHeight/2,
+                marginLeft: 5,
               }}
             >
-              <Link href={`/account/${recipe.chef}`} className={classes.link}>
-                <Tooltip title={recipe.chef}>
+              <Link href={`/account/${recipe.chef['id']}`} className={classes.link}>
+                <Tooltip title={recipe.chef['display_name']}>
                   <Typography noWrap
                     style={{
-                      paddingLeft: 5,
+                      paddingLeft: 2,
                       color: theme.palette.text.secondary,
-                      fontSize: '16px',
+                      fontSize: '13px',
                     }}
                   >
-                    {recipe.chef}
+                    {recipe.chef['display_name']}
                   </Typography>
                 </Tooltip>
               </Link>
@@ -163,7 +164,6 @@ export default function RecipeCard(props) {
 
         {/* Card media */}
         <Grid container item xs={12} direction="column"
-          className={classes.cardMedia}
           style={{
             width: width,
             height: mediaHeight,
@@ -218,7 +218,6 @@ export default function RecipeCard(props) {
 
         {/* Card footer */}
         <Grid item xs={12}
-          className={classes.cardFooter}
           style={{
             width: width,
             height: footerHeight,
@@ -227,18 +226,18 @@ export default function RecipeCard(props) {
         >
           <IconButton
             style={{
-              width: footerHeight,
-              height: footerHeight,
-              color: theme.palette.text.secondary
+              width: 0,
+              height: 0,
+              color: theme.palette.text.secondary,
             }}
           >
             <FavoriteBorderIcon />
           </IconButton>
           <IconButton
             style={{
-              width: footerHeight,
-              height: footerHeight,
-              color: theme.palette.text.secondary
+              width: 0,
+              height: 0,
+              color: theme.palette.text.secondary,
             }}
           >
             <ShareOutlinedIcon />

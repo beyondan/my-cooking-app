@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import React from 'react';
 import { 
   Button, 
   Grid,
   List,
   ListItem,
-  ListItemText,
   Typography,
 } from '@material-ui/core';
-
-import { API, Section, ErrorText } from 'components';
-import { MainLayout } from 'components/layouts';
-import { MainPages, dummyRecipes, dummySteps } from 'globals';
-import theme from 'theme';
-
 
 import { makeStyles } from '@material-ui/core/styles';
 

@@ -26,10 +26,11 @@ module.exports.getUser = async (event) => {
 
   await dydb.get({
     TableName: 'users',
-    Key: { 'id': id }
+    Key: { 'id': id },
+    ProjectionExpression: 'id, user_id, display_name, profile_image_url',
   }).promise()
   .then(data => {
-    user = JSON.stringify(data.Item);
+    user = data.Item;
   })
   .catch(err => {
     error = err;

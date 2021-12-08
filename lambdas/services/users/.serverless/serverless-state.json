@@ -240,7 +240,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/users/dev/1637361846766-2021-11-19T22:44:06.766Z/users.zip"
+                "S3Key": "serverless/users/dev/1638605214661-2021-12-04T08:06:54.661Z/users.zip"
               },
               "Handler": "s_getUser.handler",
               "Runtime": "nodejs12.x",
@@ -258,14 +258,14 @@
               "GetUserLogGroup"
             ]
           },
-          "GetUserLambdaVersionOKF2pVMDZcUqRNzcqrOUFc7FfUQkIF8auiiXqzcSIks": {
+          "GetUserLambdaVersionHSoJmteA3ESyG1zLnNX7anF3eyr3ZJZYNPskQhcZK4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetUserLambdaFunction"
               },
-              "CodeSha256": "XzDQMdnm1AIlb82MgewABziHkVHVC/YoK8zkitTrMpU="
+              "CodeSha256": "qvRtGG65MRHfVGmXojBNfLuQTNJsHPf4kefhlQFujF4="
             }
           },
           "ApiGatewayRestApi": {
@@ -398,7 +398,7 @@
               "GetUserLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1637361842938": {
+          "ApiGatewayDeployment1638605211010": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -557,7 +557,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/users/dev/1637361846766-2021-11-19T22:44:06.766Z/custom-resources.zip"
+                "S3Key": "serverless/users/dev/1638605214661-2021-12-04T08:06:54.661Z/custom-resources.zip"
               },
               "FunctionName": "users-dev-custom-resource-apigw-cw-role",
               "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -619,7 +619,7 @@
           "GetUserLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetUserLambdaVersionOKF2pVMDZcUqRNzcqrOUFc7FfUQkIF8auiiXqzcSIks"
+              "Ref": "GetUserLambdaVersionHSoJmteA3ESyG1zLnNX7anF3eyr3ZJZYNPskQhcZK4"
             },
             "Export": {
               "Name": "sls-users-dev-GetUserLambdaFunctionQualifiedArn"
@@ -777,7 +777,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetUserLambdaVersionOKF2pVMDZcUqRNzcqrOUFc7FfUQkIF8auiiXqzcSIks"
+        "versionLogicalId": "GetUserLambdaVersionHSoJmteA3ESyG1zLnNX7anF3eyr3ZJZYNPskQhcZK4"
       }
     },
     "configValidationMode": "warn",
@@ -806,7 +806,7 @@
     "artifact": "C:\\Users\\danby\\code\\my-cooking-app\\lambdas\\services\\users\\.serverless\\users.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/users/dev/1637361846766-2021-11-19T22:44:06.766Z",
+    "artifactDirectoryName": "serverless/users/dev/1638605214661-2021-12-04T08:06:54.661Z",
     "artifact": "users.zip"
   }
 }

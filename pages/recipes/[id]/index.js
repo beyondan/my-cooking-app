@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import {
-  Button,
-  Grid,
-  List,
-  ListItem,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from '@material-ui/core';
-import { API, Section } from 'components';
-import { MainLayout } from 'components/layouts';
-import { MainPages } from 'globals';
+import { API } from 'components/api';
+import { MainLayout, MainPages } from 'components/layouts';
 import theme from 'theme';
-import Link from 'next/link';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Finish from './Finish';

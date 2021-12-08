@@ -1,8 +1,7 @@
 // https://mydomain/help
 
 import React from 'react';
-import { MainLayout } from 'components/layouts';
-import { MainPages } from 'globals';
+import { MainLayout, MainPages } from 'components/layouts';
 
 /* * * * * * * * * * * * * * * * * * * *
  *                                     *

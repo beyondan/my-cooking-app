@@ -25,7 +25,7 @@ module.exports.getRecipes = async (event) => {
 
   await dydb.scan({
     TableName: 'recipes',
-    ProjectionExpression: 'id, title, summary, author, uploaded, images',
+    ProjectionExpression: 'id, title, summary, chef, uploaded, images',
   }).promise()
   .then(data => {
     recipes = data.Items;
@@ -67,10 +67,12 @@ module.exports.getRecipe = async (event) => {
 
   await dydb.get({
     TableName: 'recipes',
-    Key: { 'id': id }
+    Key: { 'id': id },
+    ProjectionExpression: 
+    'id, chef, images, ingredients, steps, summary, title, uploaded',
   }).promise()
   .then(data => {
-    recipe = JSON.stringify(data.Item);
+    recipe = data.Item;
   })
   .catch(err => {
     error = err;
