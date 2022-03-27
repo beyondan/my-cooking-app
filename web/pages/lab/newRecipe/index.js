@@ -98,20 +98,22 @@ export default function NewRecipe() {
   // Upload handling
   const handleClickUpload = () => {
     API.post('/recipes', {
-      id: uuidv4(),
-      author: 'Daniel Byun',
-      title: recipeTitle,
-      summary: recipeSummary,
-      images: [],
-      ingredients: ingredients.reduce((acc, ingr, index) => [...acc, {
+      Id: uuidv4(),
+      Title: recipeTitle,
+      Summary: recipeSummary,
+      Images: [],
+      Ingredients: ingredients.reduce((acc, ingr, index) => [...acc, {
         id: index,
         name: ingr.name,
         amount: ingr.amount,
       }], []),
-      steps: steps.reduce((acc, stepText, index) => [...acc, {
+      Steps: steps.reduce((acc, stepText, index) => [...acc, {
         id: index,
         text: stepText,
       }], []),
+      CreatedBy: {
+        "id": 
+      },
     })
     .then(res => {
       console.log(res);

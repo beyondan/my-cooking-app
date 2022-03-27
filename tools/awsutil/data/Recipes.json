@@ -1,0 +1,572 @@
+[
+  {
+    "Id": "d72ab15f-b2a4-422e-b6f2-9faf1fbbce37",
+    "Summary": "Put a healthier family classic on the dinner table by substituting ground turkey for ground beef, and using frozen riced cauliflower instead of high-carb white rice.",
+    "Images": [
+     {
+      "Uri": "https://images.media-allrecipes.com/userphotos/7193347.jpg"
+     }
+    ],
+    "Steps": [
+     {
+      "Id": 0,
+      "StepText": "Preheat the oven to 375 degrees F (190 degrees C). Spray a baking dish with cooking spray."
+     },
+     {
+      "Id": 1,
+      "StepText": "Heat olive oil in a large skillet over medium heat. Stir in ground turkey, onion, jalapeno, and garlic. Cook and stir until turkey browns and vegetables are tender, 8 to 10 minutes. Drain grease from the skillet. Add frozen riced cauliflower, tomatoes, tomato sauce, water, chili paste, salt, and pepper; stir until well incorporated. Reduce heat and simmer for 5 minutes."
+     },
+     {
+      "Id": 2,
+      "StepText": "Place bell pepper halves in the prepared baking dish. Place 1 Colby-Jack cheese cube in each pepper half, and fill with turkey mixture. Spoon remaining turkey mixture into the dish around the peppers."
+     },
+     {
+      "Id": 3,
+      "StepText": "Cover dish with aluminum foil, and bake in the preheated oven for 30 minutes. Remove foil and sprinkle each pepper with shredded Colby-Jack cheese. Bake, uncovered, until peppers are soft and cheese has melted, about 10 minutes more."
+     },
+     {
+      "Id": 4,
+      "StepText": "To serve, spoon a little turkey mixture onto a plate, and place a bell pepper half on top of it. Top each serving with 1 teaspoon sour cream and 2 jalapeno slices."
+     }
+    ],
+    "CreatedBy": {
+     "DisplayName": "byndn",
+     "ProfileImageUri": "https://kh.wiki.gallery/images/9/90/Mike_Wazowski_KHIII.png",
+     "UserId": "922057e2-e237-4cb1-b125-d4e3db50d562"
+    },
+    "Ingredients": [
+     {
+      "Name": "nonfat cooking spray",
+      "Amount": "1",
+      "Id": 0
+     },
+     {
+      "Name": "olive oil",
+      "Amount": "1 tablespoon ",
+      "Id": 1
+     },
+     {
+      "Name": "ground turkey",
+      "Amount": "1 pound",
+      "Id": 2
+     },
+     {
+      "Name": "diced onion",
+      "Amount": "1/2 cup ",
+      "Id": 3
+     },
+     {
+      "Name": "diced fresh jalapeno pepper, or to taste",
+      "Amount": "3 tablespoons ",
+      "Id": 4
+     },
+     {
+      "Name": "garlic, chopped",
+      "Amount": "2 cloves",
+      "Id": 5
+     },
+     {
+      "Name": "frozen cauliflower rice (such as Green Giant®)",
+      "Amount": "2 cups ",
+      "Id": 6
+     },
+     {
+      "Name": "diced tomatoes, undrained",
+      "Amount": "1 can (14.5 ounce) ",
+      "Id": 7
+     },
+     {
+      "Name": "tomato sauce",
+      "Amount": "1 can (8 ounce) ",
+      "Id": 8
+     },
+     {
+      "Name": "water",
+      "Amount": "1/2 cup ",
+      "Id": 9
+     },
+     {
+      "Name": "sambal oelek chili paste",
+      "Amount": "2 teaspoons ",
+      "Id": 10
+     },
+     {
+      "Name": "salt",
+      "Amount": "1/2 teaspoon",
+      "Id": 11
+     },
+     {
+      "Name": "freshly ground black pepper",
+      "Amount": "1/2 teaspoon",
+      "Id": 12
+     },
+     {
+      "Name": "large bell peppers, any color - cut in half lengthwise, cored, and seeded",
+      "Amount": "2",
+      "Id": 13
+     },
+     {
+      "Name": "Colby-Jack cheese",
+      "Amount": "4 (1 inch) cubes",
+      "Id": 14
+     },
+     {
+      "Name": "reduced-fat sour cream",
+      "Amount": "4 teaspoons",
+      "Id": 15
+     },
+     {
+      "Name": "pickled jalapeno peppers (Optional)",
+      "Amount": "8 slices",
+      "Id": 16
+     }
+    ],
+    "CreatedOn": 1627360956869,
+    "Title": "Low Carb Turkey-Stuffed Peppers"
+   },
+   {
+    "Id": "7710e20f-33c2-45a9-81c8-98b7adf026a1",
+    "Summary": "This is a great recipe for a slightly exotic flavor of Indian inspiration with a maple twist. The flavor is exceptional, delicious, and unique. Orange zest may be added for an extra flavor twist.",
+    "Images": [
+     {
+      "Uri": "https://images.media-allrecipes.com/userphotos/1122495.jpg"
+     }
+    ],
+    "Steps": [
+     {
+      "Id": 0,
+      "StepText": "Stir salt, paprika, cardamom, coriander, and black pepper together in a bowl. Add oil and maple syrup and stir until evenly combined."
+     },
+     {
+      "Id": 1,
+      "StepText": "Preheat a non-stick frying pan over medium-high heat, about 350 degrees F (175 degrees C)."
+     },
+     {
+      "Id": 2,
+      "StepText": "Dredge salmon pieces through the maple syrup mixture until evenly coated on all sIdes."
+     },
+     {
+      "Id": 3,
+      "StepText": "Cook salmon in the preheated pan until fish flakes easily with a fork, 5 to 7 minutes per sIde."
+     }
+    ],
+    "CreatedBy": {
+     "DisplayName": "byndn",
+     "ProfileImageUri": "https://kh.wiki.gallery/images/9/90/Mike_Wazowski_KHIII.png",
+     "UserId": "922057e2-e237-4cb1-b125-d4e3db50d562"
+    },
+    "Ingredients": [
+     {
+      "Name": "salt",
+      "Amount": "1/2 teaspoons ",
+      "Id": 0
+     },
+     {
+      "Name": "paprika",
+      "Amount": "1 teaspoon",
+      "Id": 1
+     },
+     {
+      "Name": "ground cardamom",
+      "Amount": "1 teaspoon",
+      "Id": 2
+     },
+     {
+      "Name": "ground coriander",
+      "Amount": "1 teaspoon",
+      "Id": 3
+     },
+     {
+      "Name": "ground black pepper",
+      "Amount": "1/2 teaspoon",
+      "Id": 4
+     },
+     {
+      "Name": "grapeseed oil",
+      "Amount": "¼ cup",
+      "Id": 5
+     },
+     {
+      "Name": "maple syrup",
+      "Amount": "2 tablespoons",
+      "Id": 6
+     },
+     {
+      "Name": "salmon fillet, cut into 3-inch pieces",
+      "Amount": "1 (2 pound)",
+      "Id": 7
+     }
+    ],
+    "CreatedOn": 1627357461440,
+    "Title": "Cardamom Maple Salmon"
+   },
+   {
+    "Id": "2e5a33eb-e0c8-437c-9104-f5ffb624cc53",
+    "Summary": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like.",
+    "Images": [
+     {
+      "Uri": "https://images.unsplash.com/photo-1591535375570-5f70748e0569?ixlib=rb-1.2.1&ixId=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+     },
+     {
+      "Uri": "https://images.unsplash.com/photo-1535400255456-984241443b29?ixId=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+     }
+    ],
+    "Steps": [
+     {
+      "Id": 0,
+      "StepText": "Heat a large paella pan (or large saute pan) over medium heat. Add the olive oil. When oil is hot, add the onion and saute for 5 minutes, until onion is softened and turning golden. Add the garlic and saute for 30 seconds."
+     },
+     {
+      "Id": 1,
+      "StepText": "Add the tomato paste and continue to cook until it is completely mixed in and the onions are rust colored, 2- 3 minutes."
+     },
+     {
+      "Id": 2,
+      "StepText": "Add the salt, paprika, chili flakes, turmeric and saffron, stir to incorporate."
+     },
+     {
+      "Id": 4,
+      "StepText": "Stir in the stock. Bring to a simmer."
+     },
+     {
+      "Id": 3,
+      "StepText": "Add the rice and stir fry until the rice is completely coated with the oil and spices."
+     },
+     {
+      "Id": 5,
+      "StepText": "Reduce heat to low and simmer for 10 minutes."
+     },
+     {
+      "Id": 6,
+      "StepText": "Add in the sliced chorizo and cook for about 5 more minutes."
+     },
+     {
+      "Id": 7,
+      "StepText": "Arrange the shrimp on top. You may need to press the shrimp into the rice with a spoon so that they are almost covered with the remaining liquId. Cook for 5-10 more minutes or until liquId is evaporated."
+     },
+     {
+      "Id": 8,
+      "StepText": "Sprinkle parsley on top and serve."
+     }
+    ],
+    "CreatedBy": {
+     "DisplayName": "byndn",
+     "ProfileImageUri": "https://kh.wiki.gallery/images/9/90/Mike_Wazowski_KHIII.png",
+     "UserId": "922057e2-e237-4cb1-b125-d4e3db50d562"
+    },
+    "Ingredients": [
+     {
+      "Name": "Olive oil",
+      "Amount": "2 tbsp",
+      "Id": 0
+     },
+     {
+      "Name": "Bomba rice/Arborio",
+      "Amount": "1.5 cups",
+      "Id": 1
+     },
+     {
+      "Name": "Kosher salt",
+      "Amount": "1 tsp",
+      "Id": 10
+     },
+     {
+      "Name": "Spanish Chorizo",
+      "Amount": "8 oz",
+      "Id": 11
+     },
+     {
+      "Name": "Raw shrimp",
+      "Amount": "1 lb",
+      "Id": 12
+     },
+     {
+      "Name": "Chicken stock",
+      "Amount": "3 cups",
+      "Id": 2
+     },
+     {
+      "Name": "Garlic - minced",
+      "Amount": "4 cloves",
+      "Id": 4
+     },
+     {
+      "Name": "Onion - diced",
+      "Amount": 1,
+      "Id": 3
+     },
+     {
+      "Name": "Tomato paste",
+      "Amount": "2 tbsp",
+      "Id": 5
+     },
+     {
+      "Name": "Smoked paprika",
+      "Amount": "1 tsp",
+      "Id": 6
+     },
+     {
+      "Name": "Turmeric",
+      "Amount": "1/2 tsp",
+      "Id": 8
+     },
+     {
+      "Name": "Saffon threads",
+      "Amount": "1 tsp / 2 pinches",
+      "Id": 7
+     },
+     {
+      "Name": "Red chili flakes",
+      "Amount": "1/2 tsp",
+      "Id": 9
+     }
+    ],
+    "CreatedOn": 1627356867752,
+    "Title": "Shrimp and Chorizo Paella"
+   },
+   {
+    "Id": "d8825e29-ce71-4da7-a96b-659d84073c02",
+    "Summary": "To make this modern icebox cake, the whizzes at America's Test Kitchen mixed lemonade concentrate into vanilla ice cream for a refreshing summer dessert beyond compare. Those contrasting (and zingy) layers are made with a combination of lemon curd and Cool Whip. And the crust? Not-too-sweet animal crackers, of course.\\n\\nThat abstract swoosh of color on top is done by dipping a paintbrush in yellow food coloring and brushing it wherever the mood takes you.\\n\\nYou'll find this and other clever no-bake frozen dessert recipes in “The Complete Summer Cookbook: Beat the Heat with 500 Recipes that Make the Most of Summer's Bounty” (America's Test Kitchen, $33).",
+    "Images": [
+     {
+      "Uri": "https://res.cloudinary.com/hksqkdlah/image/upload/41065-sfs-frozen-lemonade-cake-reshoot-170.jpg"
+     }
+    ],
+    "Steps": [
+     {
+      "Id": 0,
+      "StepText": "Adjust oven rack to mIddle position and heat oven to 325 degrees."
+     },
+     {
+      "Id": 1,
+      "StepText": "Process crackers, sugar and salt in food processor until finely ground, about 30 seconds."
+     },
+     {
+      "Id": 2,
+      "StepText": "Add melted butter and pulse until combined, about 8 pulses. "
+     },
+     {
+      "Id": 3,
+      "StepText": "Transfer crumb mixture to greased 9-inch springform pan."
+     },
+     {
+      "Id": 4,
+      "StepText": "Using bottom of dry measuring cup, press crumb mixture firmly into bottom of pan. Bake crust until fragrant and beginning to brown, 12 to 14 minutes."
+     },
+     {
+      "Id": 5,
+      "StepText": "Let cool completely, about 30 minutes."
+     },
+     {
+      "Id": 6,
+      "StepText": "Scoop vanilla ice cream into large bowl and, using a rubber spatula or wooden spoon, break up the scoops."
+     },
+     {
+      "Id": 7,
+      "StepText": "Stir and fold ice cream to achieve smooth consistency."
+     },
+     {
+      "Id": 8,
+      "StepText": "Stir ice cream, 21/2 cups whipped topping and lemonade concentrate in bowl until combined."
+     },
+     {
+      "Id": 9,
+      "StepText": "Pour half the ice cream mixture into cooled crust and smooth top with offset spatula."
+     },
+     {
+      "Id": 10,
+      "StepText": "Transfer pan and bowl with remaining ice cream mixture to freezer and freeze until firm, about 1 hour."
+     },
+     {
+      "Id": 11,
+      "StepText": "Stir lemon curd, 1/2 teaspoon food coloring and remaining 21/2 cups whipped topping in separate bowl until combined. "
+     },
+     {
+      "Id": 12,
+      "StepText": "Spread lemon curd mixture in even layer over frozen ice cream layer."
+     },
+     {
+      "Id": 13,
+      "StepText": "Return pan to freezer until firm, about 1 hour."
+     },
+     {
+      "Id": 14,
+      "StepText": "Scoop remaining half of ice cream mixture into large bowl and, using rubber spatula or wooden spoon, break up scoops of ice cream. "
+     },
+     {
+      "Id": 15,
+      "StepText": "Stir and fold ice cream to achieve smooth consistency, then spread over frozen lemon curd layer, smoothing top with offset spatula."
+     },
+     {
+      "Id": 16,
+      "StepText": "Freeze cake until fully firm, at least 6 hours or up to 24 hours."
+     },
+     {
+      "Id": 17,
+      "StepText": "Remove sIdes of pan and slIde thin metal spatula between crust and pan bottom to loosen, then slIde cake to cake plate or pedestal."
+     },
+     {
+      "Id": 18,
+      "StepText": "Smooth sIdes of cake with offset spatula."
+     },
+     {
+      "Id": 19,
+      "StepText": "Dip 1-inch paintbrush in remaining 1/2 teaspoon food coloring and lightly drag across top of cake, painting straight yellow stripes 2 to 3 inches long, refreshing brush with food coloring as needed."
+     },
+     {
+      "Id": 20,
+      "StepText": "Slice and serve."
+     }
+    ],
+    "CreatedBy": {
+     "DisplayName": "byndn",
+     "ProfileImageUri": "https://kh.wiki.gallery/images/9/90/Mike_Wazowski_KHIII.png",
+     "UserId": "922057e2-e237-4cb1-b125-d4e3db50d562"
+    },
+    "Ingredients": [
+     {
+      "Name": "animal crackers",
+      "Amount": "5 ounces ",
+      "Id": 0
+     },
+     {
+      "Name": "sugar",
+      "Amount": "3 tablespoons",
+      "Id": 1
+     },
+     {
+      "Name": "table salt",
+      "Amount": "Pinch",
+      "Id": 2
+     },
+     {
+      "Name": "unsalted butter, melted",
+      "Amount": "4 tablespoons",
+      "Id": 3
+     },
+     {
+      "Name": "vanilla ice cream",
+      "Amount": "2 pints",
+      "Id": 4
+     },
+     {
+      "Name": "Cool Whip Whipped Topping, thawed, divIded",
+      "Amount": "16 ounces",
+      "Id": 5
+     },
+     {
+      "Name": "frozen lemonade concentrate, thawed",
+      "Amount": "1 container",
+      "Id": 6
+     },
+     {
+      "Name": "lemon curd",
+      "Amount": "2 (10-ounce) jars",
+      "Id": 7
+     },
+     {
+      "Name": "yellow gel food coloring, divIded",
+      "Amount": "1 teaspoon",
+      "Id": 8
+     }
+    ],
+    "CreatedOn": 1627356867586,
+    "Title": "Frozen Lemonade Cake"
+   },
+   {
+    "Id": "c48e3d58-8bbb-48ff-a82d-8419c3e23c9b",
+    "Summary": "A hearty, warming, and comforting venison shepherd's pie that's perfect for opening day!",
+    "Images": [
+     {
+      "Uri": "https://images.media-allrecipes.com/userphotos/7234883.jpg"
+     }
+    ],
+    "Steps": [
+     {
+      "Id": 0,
+      "StepText": "Preheat the oven to 375 degrees F (190 degrees C)."
+     },
+     {
+      "Id": 1,
+      "StepText": "Pierce the sweet potato several times with a fork and wrap in aluminum foil. Place on a baking sheet."
+     },
+     {
+      "Id": 2,
+      "StepText": "Roast in the preheated oven until sweet potato is fork-tender, 70 to 90 minutes. Remove from the oven and let cool enough to handle, 5 to 10 minutes."
+     },
+     {
+      "Id": 3,
+      "StepText": "Reduce oven temperature to 350 degrees F (175 degrees C). Lightly grease a 9-inch deep-dish pie plate and place on a rimmed baking sheet to prevent bubbling over."
+     },
+     {
+      "Id": 4,
+      "StepText": "Peel skin off the sweet potato and place flesh into a large bowl. Add butter, milk, salt, pepper, sage, and nutmeg. Beat using an electric mixer until ingredients are combined. Mix in Cheddar cheese gently. Set asIde."
+     },
+     {
+      "Id": 5,
+      "StepText": "Heat vegetable oil in a Dutch oven over medium-high heat. Add mushrooms, onion, carrots, celery, and garlic. Sprinkle with salt. Cook until vegetables have softened, 5 to 7 minutes. Add venison, thyme, oregano, garlic powder, onion powder, 1/2 teaspoon salt, pepper, and sage. Stir to combine, breaking up any large pieces of venison. Cook until venison is no longer pink, 5 to 7 minutes."
+     },
+     {
+      "Id": 6,
+      "StepText": "Stir flour into the pot and cook for 1 minute. Pour in white wine and stir to loosen any browned bits from the bottom of the pan. Cook until wine has reduced slightly, 2 to 3 minutes. Stir in broth. Allow mixture to come to a simmer; continue to cook until filling has thickened, 5 to 10 minutes. Stir in peas. Taste and adjust salt and pepper as necessary. Remove from heat and let cool slightly."
+     },
+     {
+      "Id": 7,
+      "StepText": "Pour filling into the prepared pie plate. Top with sweet potato mixture and spread gently across the top, covering most of the filling."
+     },
+     {
+      "Id": 8,
+      "StepText": "Bake in the preheated oven until top is set and filling is bubbling, about 30 minutes. Allow to cool slightly before serving."
+     }
+    ],
+    "CreatedBy": {
+     "DisplayName": "byndn",
+     "ProfileImageUri": "https://kh.wiki.gallery/images/9/90/Mike_Wazowski_KHIII.png",
+     "UserId": "922057e2-e237-4cb1-b125-d4e3db50d562"
+    },
+    "Ingredients": [
+     {
+      "Name": "large sweet potato",
+      "Amount": "1",
+      "Id": 0
+     },
+     {
+      "Name": "unsalted butter, softened",
+      "Amount": "2 tablespoons",
+      "Id": 1
+     },
+     {
+      "Name": "milk",
+      "Amount": "2 tablespoons, or more as needed",
+      "Id": 2
+     },
+     {
+      "Name": "salt",
+      "Amount": "1/2 teaspoon",
+      "Id": 3
+     },
+     {
+      "Name": "ground black pepper",
+      "Amount": "1/4 teaspoon ",
+      "Id": 4
+     },
+     {
+      "Name": "dried sage",
+      "Amount": "1/4 teaspoon",
+      "Id": 5
+     },
+     {
+      "Name": "freshly ground nutmeg",
+      "Amount": "1 pinch",
+      "Id": 6
+     },
+     {
+      "Name": "shredded sharp Cheddar cheese",
+      "Amount": "1/2 cup ",
+      "Id": 7
+     }
+    ],
+    "CreatedOn": 1627357817095,
+    "Title": "Sweet Potato and Venison Shepherd's Pie"
+  }
+]
