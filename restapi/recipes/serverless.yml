@@ -12,10 +12,11 @@
 # Happy Coding!
 
 service: recipes
+configValidationMode: error
 
 # app and org for use with dashboard.serverless.com
-app: yorilab
-org: beyondan
+org: yorilaborg
+# app: yorilab
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -24,23 +25,23 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: go1.x
-  stage: prod
+  stage: dev
   region: us-west-1
 
-# you can add statements to the Lambda function's IAM Role here
-iam:
-  role:
-    name: recipes-prod-uswest1-lambda-role
-    path: /yorilab/services/
-    statements:
-      - Effect: "Allow"
-        Action:
-          - "dynamodb:BatchWriteItem"
-          - "dynamodb:GetItem"
-          - "dynamodb:PutItem"
-          - "dynamodb:Scan"
-        Resource:
-          - "arn:aws:dynamodb:us-west-1:343569715951:table/recipes"
+  # you can add statements to the Lambda function's IAM Role here
+  iam:
+    role:
+      name: recipes-prod-uswest1-lambda-role
+      path: /yorilab/services/
+      statements:
+        - Effect: "Allow"
+          Action:
+            - "dynamodb:BatchWriteItem"
+            - "dynamodb:GetItem"
+            - "dynamodb:PutItem"
+            - "dynamodb:Scan"
+          Resource:
+            - "arn:aws:dynamodb:*:343569715951:table/Recipes"
 
 # you can define service wide environment variables here
 #  environment:
@@ -57,13 +58,13 @@ functions:
     events:
       - httpApi:
           path: /recipes
-          method: post
+          method: POST
   getRecipes:
     handler: bin/recipes
     events:
       - httpApi:
           path: /recipes
-          method: get
+          method: GET
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

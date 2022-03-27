@@ -37,12 +37,15 @@ func main() {
 // Handler is our lambda handler invoked by the `lambda.Start` function call
 func handler(
 	ctx context.Context,
-	req events.APIGatewayProxyRequest,
+	req events.APIGatewayV2HTTPRequest,
 ) (
-	*events.APIGatewayProxyResponse,
+	*events.APIGatewayV2HTTPResponse,
 	error,
 ) {
-	switch req.HTTPMethod {
+	log.Printf("CONTEXT: %#v\n", ctx)
+	log.Printf("REQUEST: %#v\n", req)
+
+	switch req.RequestContext.HTTP.Method {
 	case "GET":
 		return handlers.GetRecipes(ctx, req, dydb)
 	case "POST":

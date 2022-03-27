@@ -29,23 +29,20 @@ type Recipe struct {
 }
 
 // Read ./data/Recipes.json and return the content.
-func getRecipes() []Recipe {
+func getRecipes() *[]Recipe {
 	raw, err := ioutil.ReadFile("./data/Recipes.json")
 	if err != nil {
 		log.Fatalf("Got error reading file: %s", err)
 	}
-	var recipes []Recipe
-	json.Unmarshal(raw, &recipes)
+	var recipes *[]Recipe
+	json.Unmarshal(raw, recipes)
 	return recipes
 }
 
-func main() {
-	var tableName string = "Recipes"
-	var op string
-
-	// DeleteTable
-	op = fmt.Sprintf("DeleteTable(\"%s\")", tableName)
-	if err := dydb.DeleteTable(tableName); err != nil {
+func DeleteTable(tableName string) {
+	op := fmt.Sprintf("DeleteTable(\"%s\")", tableName)
+	err := dydb.DeleteTable(tableName)
+	if err != nil {
 		if awserr, ok := err.(awserr.Error); ok {
 			switch awserr.Code() {
 			case dynamodb.ErrCodeResourceNotFoundException:
@@ -57,9 +54,10 @@ func main() {
 	} else {
 		log.Printf("PASS - %s\n", op)
 	}
+}
 
-	// CreateTable
-	op = fmt.Sprintf("CreateTable(\"%s\")", tableName)
+func CreateTable(tableName string) {
+	op := fmt.Sprintf("CreateTable(\"%s\")", tableName)
 	if err := dydb.CreateTable(tableName); err != nil {
 		if awserr, ok := err.(awserr.Error); ok {
 			switch awserr.Code() {
@@ -70,11 +68,12 @@ func main() {
 	} else {
 		log.Printf("PASS - %s\n", op)
 	}
+}
 
-	// PutItems
-	op = fmt.Sprintf("PutItems(\"%s\", &recipes)", tableName)
+func LoadRecipes(tableName string) {
 	recipes := getRecipes()
-	if err := dydb.PutItems(tableName, &recipes); err != nil {
+	op := fmt.Sprintf("PutItems(\"%s\", &recipes)", tableName)
+	if err := dydb.PutItems(tableName, recipes); err != nil {
 		if awserr, ok := err.(awserr.Error); ok {
 			switch awserr.Code() {
 			default:
@@ -84,4 +83,12 @@ func main() {
 	} else {
 		log.Printf("PASS - %s\n", op)
 	}
+}
+
+func main() {
+	const tableName = "Recipes"
+
+	DeleteTable(tableName)
+	CreateTable(tableName)
+	LoadRecipes(tableName)
 }

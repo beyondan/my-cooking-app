@@ -21,10 +21,10 @@ const (
 
 func GetRecipes(
 	ctx context.Context,
-	req events.APIGatewayProxyRequest,
+	req events.APIGatewayV2HTTPRequest,
 	dydb *dynamodb.DynamoDB,
 ) (
-	*events.APIGatewayProxyResponse,
+	*events.APIGatewayV2HTTPResponse,
 	error,
 ) {
 	id := req.QueryStringParameters["id"]
@@ -52,10 +52,10 @@ func GetRecipes(
 
 func PostRecipes(
 	ctx context.Context,
-	req events.APIGatewayProxyRequest,
+	req events.APIGatewayV2HTTPRequest,
 	dydb *dynamodb.DynamoDB,
 ) (
-	*events.APIGatewayProxyResponse,
+	*events.APIGatewayV2HTTPResponse,
 	error,
 ) {
 	newRecipe, err := recipedb.CreateRecipe(req.Body, dydb)
@@ -68,20 +68,20 @@ func PostRecipes(
 }
 
 func UnhandledMethod() (
-	*events.APIGatewayProxyResponse,
+	*events.APIGatewayV2HTTPResponse,
 	error,
 ) {
 	return response(http.StatusMethodNotAllowed, "HTTP method not allowed")
 }
 
-func response(status int, bodyObj interface{}) (*events.APIGatewayProxyResponse, error) {
+func response(status int, bodyObj interface{}) (*events.APIGatewayV2HTTPResponse, error) {
 	bodyBytes, _ := json.Marshal(bodyObj)
 	bodyString := string(bodyBytes)
-	return &events.APIGatewayProxyResponse{
+	return &events.APIGatewayV2HTTPResponse{
+		StatusCode: status,
 		Headers: map[string]string{
 			"Content-Type": "application/json",
 		},
-		StatusCode: status,
-		Body:       bodyString,
+		Body: bodyString,
 	}, nil
 }
