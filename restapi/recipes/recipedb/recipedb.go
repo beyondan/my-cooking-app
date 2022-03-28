@@ -48,6 +48,10 @@ func FetchRecipe(
 			"Failed to get recipe [%s] from database. Error: %s", id, err))
 	}
 
+	if len(result.Item) == 0 {
+		return nil, nil
+	}
+
 	recipe := new(Recipe)
 	err = dynamodbattribute.UnmarshalMap(result.Item, recipe)
 	if err != nil {
